@@ -6,6 +6,8 @@ target 'Tesoro' do
   use_frameworks!
   pod 'Alamofire', '~> 4.4'
   pod 'SwiftyJSON'
+  pod 'Firebase/Core'
+  pod 'Firebase/Database'
 
   # Pods for Tesoro
 
