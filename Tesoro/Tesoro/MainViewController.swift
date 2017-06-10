@@ -13,9 +13,8 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        TSGFirebaseManager.share.userCountListener { (error, userCount) in
-            print("人數變動\(userCount)")
+        TSGFirebaseManager.share.userStatusListener { (error, userStatus) in
+            print("User 狀態變動\(userStatus)")
         }
         
         TSGFirebaseManager.share.gameStatusListener { (error, isGameStart) in

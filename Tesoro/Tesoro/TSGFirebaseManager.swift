@@ -11,23 +11,25 @@ import FirebaseDatabase
 
 class TSGFirebaseManager: NSObject {
     var ref: DatabaseReference!
-    var isServer: Bool!
+    var isServer: Bool = false
+    var isOnline: Bool = false
     var questions: [String] = []
     var userCount: Int = 0 {
         didSet {
+            self.isOnline = true
             self.ref.child("game_state").updateChildValues(["start": false])
             if userCount >= 2 {
                 //server
                 
                 //init
-                isServer = true
+                self.isServer = true
                 self.ref.child("game_state").child("user").updateChildValues(["user_count": 1])
-                self.ref.child("game_state").child("user").child("server").updateChildValues(["isOnline" : true])
-                self.ref.child("game_state").child("user").child("client").updateChildValues(["isOnline" : false])
+                self.ref.child("game_state").child("user").child("server").updateChildValues(["isOnline" : true, "score" : 0])
+                self.ref.child("game_state").child("user").child("client").updateChildValues(["isOnline" : false, "score" : 0])
                 self.ref.child("game_state").updateChildValues(["questions": ["book", "photo"]])
             }else{
                 //client
-                isServer = false
+                self.isServer = false
                 self.ref.child("game_state").child("user").updateChildValues(["user_count": userCount + 1])
                 self.ref.child("game_state").child("user").child("client").updateChildValues(["isOnline" : true])
             }
@@ -35,7 +37,7 @@ class TSGFirebaseManager: NSObject {
         }
     }
     
-    typealias CountCompletionHandler = (_ error:NSError?, _ userCount: Int) -> Void
+    typealias UserStatusCompletionHandler = (_ error:NSError?, _ userStatus: NSDictionary) -> Void
     typealias GameStatusCompletionHandler = (_ error:NSError?, _ gmaeStart: Bool) -> Void
     
     static let share : TSGFirebaseManager = {
@@ -71,14 +73,30 @@ class TSGFirebaseManager: NSObject {
         }
     }
     
-    func userCountListener(comp: @escaping CountCompletionHandler) {
+    func gmaeStart() {
+        if isServer {
+            self.ref.child("game_state").updateChildValues(["start": true])
+        }
+    }
+    
+    func gmaeOver() {
+        if isServer {
+            self.ref.child("game_state").updateChildValues(["start": false])
+        }
+    }
+    
+    func updateScore(score: Int) {
+        if self.isServer {
+            self.ref.child("game_state").child("user").child("server").updateChildValues(["score" : score])
+        }else{
+            self.ref.child("game_state").child("user").child("client").updateChildValues(["score" : score])
+        }
+    }
+    
+    func userStatusListener(comp: @escaping UserStatusCompletionHandler) {
         ref.child("game_state").observe(DataEventType.childChanged, with: { (snapshot) in
-            let value = snapshot.value as? NSDictionary
-            guard let userCount = value?["user_count"] as? Int else {
-                return
-            }
-            if userCount > 0 {
-                comp(nil, userCount)
+            if let userStatus = snapshot.value as? NSDictionary {
+                comp(nil, userStatus)
             }
         })
     }
@@ -86,18 +104,12 @@ class TSGFirebaseManager: NSObject {
     func gameStatusListener(comp: @escaping GameStatusCompletionHandler) {
         ref.child("game_state").observe(DataEventType.childChanged, with: { (snapshot) in
             
-//            isStart
+            //            isStart
             if let isStart = snapshot.value as? Bool {
                 comp(nil, isStart)
             }
             
         })
-    }
-    
-    func gmaeStart() {
-        if isServer {
-            self.ref.child("game_state").updateChildValues(["start": true])
-        }
     }
     
 }
