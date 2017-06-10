@@ -18,6 +18,10 @@ class MapViewController: UIViewController {
     var myScore = 0 {
         didSet {
             print("我的分數變動為\(myScore)")
+            if myScore >= 6 {
+                TSGFirebaseManager.share.isWinnder = true
+                TSGFirebaseManager.share.gmaeOver()
+            }
         }
     }
     var enemyScore = 0{
@@ -71,6 +75,19 @@ class MapViewController: UIViewController {
             }
 //            print("User 狀態變動\(userStatus)")
 //            if userStatus.key
+        }
+        
+        TSGFirebaseManager.share.gameStatusListener { (error, isGameStart) in
+            if (isGameStart) {
+                print("遊戲開始")
+            }else{
+                print("遊戲結束")
+                if TSGFirebaseManager.share.isWinnder {
+                    print("贏家")
+                }else {
+                    print("輸家")
+                }
+            }
         }
         
     }

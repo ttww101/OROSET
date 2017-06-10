@@ -13,6 +13,7 @@ class TSGFirebaseManager: NSObject {
     var ref: DatabaseReference!
     var isServer: Bool = false
     var isOnline: Bool = false
+    var isWinnder: Bool = false
     var questions: [String] = []
     var userCount: Int = 0 {
         didSet {

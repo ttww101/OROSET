@@ -34,6 +34,9 @@ class WelcomeViewController: UIViewController {
                 self.connectGame()
             }else{
                 print("遊戲結束")
+                if TSGFirebaseManager.share.isWinnder {
+                    print("贏家")
+                }
             }
         }
         
