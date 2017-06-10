@@ -15,6 +15,13 @@ class MapViewController: UIViewController {
     @IBOutlet weak var userImageView: UIImageView!
     @IBOutlet weak var enemyProgressView: UIView!
     @IBOutlet weak var enemyProgressDotsStackView: UIStackView!
+    @IBOutlet weak var game1Button: UIButton!
+    @IBOutlet weak var game2Button: UIButton!
+    @IBOutlet weak var game3Button: UIButton!
+    @IBOutlet weak var game4Button: UIButton!
+    @IBOutlet weak var game5Button: UIButton!
+    
+    
     
     let mapImageView = UIImageView()
     
@@ -48,21 +55,16 @@ class MapViewController: UIViewController {
         ScrollMapView.contentSize = mapImageView.frame.size
         print(ScrollMapView.contentSize)
         
+        //game button
+        game1Button.imageView?.contentMode = .scaleAspectFit
+        game1Button.frame = CGRect(x: mapImageView.frame.width/8, y: mapImageView.frame.height/4, width: 100, height: 100)
+        ScrollMapView.addSubview(game1Button)
+        
         //vibrate image view
         userImageView.vibrate(amplitude: 10, duration: 0.5)
         enemyImageView.vibrate(amplitude: 10, duration: 0.5)
         
         //progress stack view
-//        userProgressDotsStackView.spacing = userProgressDotsStackView.frame.width / 8
-//        userProgressDotsStackView.translatesAutoresizingMaskIntoConstraints = false
-//        userProgressDotsStackView.centerXAnchor.constraint(equalTo: crownProgressView.centerXAnchor).isActive = true
-//        userProgressDotsStackView.centerYAnchor.constraint(equalTo: crownProgressView.centerYAnchor).isActive = true
-//        userProgressDotsStackView.widthAnchor.constraint(equalToConstant: crownProgressView.frame.width - 20).isActive = true
-//        userProgressDotsStackView.heightAnchor.constraint(equalToConstant: crownProgressView.frame.height + 10).isActive = true
-//        for i in 0...4 {
-//            userProgressDotsStackView.subviews[i].layer.cornerRadius = userProgressDotsStackView.frame.height / 5
-//
-//        }
         enemyProgressDotsStackView.spacing = enemyProgressDotsStackView.frame.width / 8
         enemyProgressDotsStackView.translatesAutoresizingMaskIntoConstraints = false
         enemyProgressDotsStackView.centerXAnchor.constraint(equalTo: enemyProgressView.centerXAnchor).isActive = true
@@ -72,7 +74,8 @@ class MapViewController: UIViewController {
         for i in 0...4 {
             enemyProgressDotsStackView.subviews[i].layer.cornerRadius = enemyProgressDotsStackView.frame.height / 5
         }
-
+        
+        
         
         
     }
