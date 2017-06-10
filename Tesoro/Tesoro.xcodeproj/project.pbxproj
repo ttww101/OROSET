@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		1ACAEBABC3A05336FFBB8068 /* Pods_Tesoro.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94D2B4115B1D83633151B517 /* Pods_Tesoro.framework */; };
+		53248FFA1EEB8E6800C59BC4 /* TSGVManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53248FF91EEB8E6800C59BC4 /* TSGVManager.swift */; };
 		538195DB1EEB870D001A5653 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538195DA1EEB870D001A5653 /* AppDelegate.swift */; };
 		538195DD1EEB870D001A5653 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538195DC1EEB870D001A5653 /* ViewController.swift */; };
 		538195E01EEB870D001A5653 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 538195DE1EEB870D001A5653 /* Main.storyboard */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		53248FF91EEB8E6800C59BC4 /* TSGVManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSGVManager.swift; sourceTree = "<group>"; };
 		538195D71EEB870D001A5653 /* Tesoro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tesoro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		538195DA1EEB870D001A5653 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		538195DC1EEB870D001A5653 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -71,6 +73,7 @@
 			children = (
 				538195DA1EEB870D001A5653 /* AppDelegate.swift */,
 				538195DC1EEB870D001A5653 /* ViewController.swift */,
+				53248FF91EEB8E6800C59BC4 /* TSGVManager.swift */,
 				538195DE1EEB870D001A5653 /* Main.storyboard */,
 				538195E11EEB870D001A5653 /* Assets.xcassets */,
 				538195E31EEB870D001A5653 /* LaunchScreen.storyboard */,
@@ -213,6 +216,7 @@
 			files = (
 				538195DD1EEB870D001A5653 /* ViewController.swift in Sources */,
 				538195DB1EEB870D001A5653 /* AppDelegate.swift in Sources */,
+				53248FFA1EEB8E6800C59BC4 /* TSGVManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -378,6 +382,7 @@
 				538195EB1EEB870D001A5653 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
