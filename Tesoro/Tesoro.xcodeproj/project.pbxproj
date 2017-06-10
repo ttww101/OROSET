@@ -17,6 +17,10 @@
 		538195E01EEB870D001A5653 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 538195DE1EEB870D001A5653 /* Main.storyboard */; };
 		538195E21EEB870D001A5653 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 538195E11EEB870D001A5653 /* Assets.xcassets */; };
 		538195E51EEB870D001A5653 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 538195E31EEB870D001A5653 /* LaunchScreen.storyboard */; };
+		53F98BDE1EEBDF7A00C5EB9B /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F98BDB1EEBDF7A00C5EB9B /* MapViewController.swift */; };
+		53F98BDF1EEBDF7A00C5EB9B /* PuzzleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F98BDC1EEBDF7A00C5EB9B /* PuzzleViewController.swift */; };
+		53F98BE01EEBDF7A00C5EB9B /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F98BDD1EEBDF7A00C5EB9B /* WelcomeViewController.swift */; };
+		53F98BE21EEBE02000C5EB9B /* UIImageView+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F98BE11EEBE02000C5EB9B /* UIImageView+Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +35,10 @@
 		538195E11EEB870D001A5653 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		538195E41EEB870D001A5653 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		538195E61EEB870D001A5653 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		53F98BDB1EEBDF7A00C5EB9B /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		53F98BDC1EEBDF7A00C5EB9B /* PuzzleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PuzzleViewController.swift; sourceTree = "<group>"; };
+		53F98BDD1EEBDF7A00C5EB9B /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
+		53F98BE11EEBE02000C5EB9B /* UIImageView+Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImageView+Extensions.swift"; sourceTree = "<group>"; };
 		6F50C88AA82F401E1E73F9D2 /* Pods-Tesoro.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tesoro.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Tesoro/Pods-Tesoro.debug.xcconfig"; sourceTree = "<group>"; };
 		94D2B4115B1D83633151B517 /* Pods_Tesoro.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Tesoro.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E44F235DF31FC5C55BFC3EC3 /* Pods-Tesoro.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Tesoro.release.xcconfig"; path = "Pods/Target Support Files/Pods-Tesoro/Pods-Tesoro.release.xcconfig"; sourceTree = "<group>"; };
@@ -82,6 +90,10 @@
 				5346D85D1EEBB83600B0049B /* TSGVApiManager.swift */,
 				5343C8831EEB98810086FBA5 /* TSGFirebaseManager.swift */,
 				5346D85B1EEB9F3F00B0049B /* MainViewController.swift */,
+				53F98BDB1EEBDF7A00C5EB9B /* MapViewController.swift */,
+				53F98BDC1EEBDF7A00C5EB9B /* PuzzleViewController.swift */,
+				53F98BDD1EEBDF7A00C5EB9B /* WelcomeViewController.swift */,
+				53F98BE11EEBE02000C5EB9B /* UIImageView+Extensions.swift */,
 				538195DE1EEB870D001A5653 /* Main.storyboard */,
 				538195E11EEB870D001A5653 /* Assets.xcassets */,
 				538195E31EEB870D001A5653 /* LaunchScreen.storyboard */,
@@ -226,6 +238,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				538195DB1EEB870D001A5653 /* AppDelegate.swift in Sources */,
+				53F98BE01EEBDF7A00C5EB9B /* WelcomeViewController.swift in Sources */,
+				53F98BDE1EEBDF7A00C5EB9B /* MapViewController.swift in Sources */,
+				53F98BE21EEBE02000C5EB9B /* UIImageView+Extensions.swift in Sources */,
+				53F98BDF1EEBDF7A00C5EB9B /* PuzzleViewController.swift in Sources */,
 				5378415C1EEB918D006864F3 /* TSGTestViewController.swift in Sources */,
 				5346D85E1EEBB83600B0049B /* TSGVApiManager.swift in Sources */,
 				5343C8841EEB98810086FBA5 /* TSGFirebaseManager.swift in Sources */,
