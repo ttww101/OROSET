@@ -15,6 +15,7 @@ class MapViewController: UIViewController {
     @IBOutlet weak var userImageView: UIImageView!
     @IBOutlet weak var enemyProgressView: UIView!
     @IBOutlet weak var enemyProgressDotsStackView: UIStackView!
+<<<<<<< HEAD
     var myScore = 0 {
         didSet {
             print("我的分數變動為\(myScore)")
@@ -25,6 +26,7 @@ class MapViewController: UIViewController {
             print("敵人的分數變動為\(enemyScore)")
         }
     }
+=======
     @IBOutlet weak var game1Button: UIButton!
     @IBOutlet weak var game2Button: UIButton!
     @IBOutlet weak var game3Button: UIButton!
@@ -32,6 +34,7 @@ class MapViewController: UIViewController {
     @IBOutlet weak var game5Button: UIButton!
     
     
+>>>>>>> test
     
     let mapImageView = UIImageView()
     

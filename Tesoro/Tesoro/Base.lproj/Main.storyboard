@@ -55,13 +55,31 @@
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" bounces="NO" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F3Y-Ig-Hvb">
                                 <rect key="frame" x="16" y="84" width="343" height="483"/>
                                 <subviews>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="Crown" translatesAutoresizingMaskIntoConstraints="NO" id="EIQ-ff-srC">
-                                        <rect key="frame" x="23" y="359" width="40" height="40"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="40" id="VU8-RJ-yBI"/>
-                                            <constraint firstAttribute="height" constant="40" id="hd0-Af-J4M"/>
-                                        </constraints>
-                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qt5-zn-KGl">
+                                        <rect key="frame" x="35" y="29" width="129" height="66"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="water monster"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PiO-b9-7Ni">
+                                        <rect key="frame" x="198" y="29" width="116" height="131"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="Mummy"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YZw-QX-EOb">
+                                        <rect key="frame" x="84" y="205" width="46" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="Button"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kd2-kn-Rhf">
+                                        <rect key="frame" x="165" y="225" width="71" height="96"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="old_wolf_curved_sword"/>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mS9-eC-sRT">
+                                        <rect key="frame" x="23" y="348" width="153" height="127"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" image="dragon"/>
+                                    </button>
                                 </subviews>
                             </scrollView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RPs-ev-dnx">
@@ -140,13 +158,20 @@
                                     <constraint firstAttribute="height" constant="40" id="usp-Gm-Y7o"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aoq-wV-Ctt">
-                                <rect key="frame" x="151" y="45" width="73" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Game 1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aoq-wV-Ctt">
+                                <rect key="frame" x="139" y="41" width="97" height="35"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="29"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="Crown" translatesAutoresizingMaskIntoConstraints="NO" id="EIQ-ff-srC">
+                                <rect key="frame" x="66" y="28" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="VU8-RJ-yBI"/>
+                                    <constraint firstAttribute="height" constant="40" id="hd0-Af-J4M"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <constraints>
                             <constraint firstItem="F3Y-Ig-Hvb" firstAttribute="trailing" secondItem="uv5-3P-fAn" secondAttribute="trailingMargin" id="3kg-Vk-r8Q"/>
@@ -169,6 +194,11 @@
                         <outlet property="enemyImageView" destination="jrU-GI-yJC" id="tTM-4P-G45"/>
                         <outlet property="enemyProgressDotsStackView" destination="eMW-qB-Rk8" id="gxd-Ye-Cpy"/>
                         <outlet property="enemyProgressView" destination="RPs-ev-dnx" id="XEC-UD-aht"/>
+                        <outlet property="game1Button" destination="qt5-zn-KGl" id="aTK-yd-8nn"/>
+                        <outlet property="game2Button" destination="PiO-b9-7Ni" id="guy-z4-K35"/>
+                        <outlet property="game3Button" destination="YZw-QX-EOb" id="OgT-8A-zoY"/>
+                        <outlet property="game4Button" destination="Kd2-kn-Rhf" id="9NI-Dg-M1I"/>
+                        <outlet property="game5Button" destination="mS9-eC-sRT" id="1Bo-tC-ZSY"/>
                         <outlet property="userImageView" destination="EIQ-ff-srC" id="pKH-Hx-Wi7"/>
                     </connections>
                 </viewController>
@@ -210,6 +240,10 @@
     <resources>
         <image name="Crown" width="1200" height="898"/>
         <image name="Enemy" width="600" height="600"/>
+        <image name="Mummy" width="1114" height="1393"/>
+        <image name="dragon" width="1667" height="1325"/>
+        <image name="old_wolf_curved_sword" width="189" height="277"/>
+        <image name="water monster" width="300" height="146"/>
         <image name="羊皮紙 1" width="1000" height="1414"/>
     </resources>
 </document>
