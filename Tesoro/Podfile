@@ -10,6 +10,7 @@ target 'Tesoro' do
   pod 'Firebase/Database'
   pod 'Spring', :git => 'https://github.com/MengTo/Spring.git', :branch => 'swift3'
   pod 'Gifu'
+  pod 'ImagePicker'
   # Pods for Tesoro
 
 end

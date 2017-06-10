@@ -20,6 +20,7 @@ PODS:
   - GoogleToolboxForMac/Defines (2.1.1)
   - GoogleToolboxForMac/NSData+zlib (2.1.1):
     - GoogleToolboxForMac/Defines (= 2.1.1)
+  - ImagePicker (2.1.1)
   - Spring (1.0.3)
   - SwiftyJSON (3.1.4)
 
@@ -28,6 +29,7 @@ DEPENDENCIES:
   - Firebase/Core
   - Firebase/Database
   - Gifu
+  - ImagePicker
   - Spring (from `https://github.com/MengTo/Spring.git`, branch `swift3`)
   - SwiftyJSON
 
@@ -50,9 +52,10 @@ SPEC CHECKSUMS:
   FirebaseInstanceID: 9fbf536668f4d3f0880e7438456dabd1376e294b
   Gifu: 56a4d8f1092399159fa32662aa2232158b48d8ac
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
+  ImagePicker: fe4c699abb56ff03994fa98d8b02e3883ee118be
   Spring: 3f02b5dc3308572ef177b3cad0fa7bbc4b0706f7
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: 50b50d0f6c84e9ba0f67fd2c1cd9916ae0bab060
+PODFILE CHECKSUM: be6be6faf8ea67661f74a02cad336a99bd79b5e8
 
 COCOAPODS: 1.2.0
