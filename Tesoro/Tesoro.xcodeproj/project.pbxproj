@@ -8,17 +8,19 @@
 
 /* Begin PBXBuildFile section */
 		1ACAEBABC3A05336FFBB8068 /* Pods_Tesoro.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94D2B4115B1D83633151B517 /* Pods_Tesoro.framework */; };
+		533408831EEB962100DA3EEC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 533408821EEB962100DA3EEC /* GoogleService-Info.plist */; };
+		5378415C1EEB918D006864F3 /* TSGTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5378415B1EEB918D006864F3 /* TSGTestViewController.swift */; };
 		538195DB1EEB870D001A5653 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538195DA1EEB870D001A5653 /* AppDelegate.swift */; };
-		538195DD1EEB870D001A5653 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538195DC1EEB870D001A5653 /* ViewController.swift */; };
 		538195E01EEB870D001A5653 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 538195DE1EEB870D001A5653 /* Main.storyboard */; };
 		538195E21EEB870D001A5653 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 538195E11EEB870D001A5653 /* Assets.xcassets */; };
 		538195E51EEB870D001A5653 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 538195E31EEB870D001A5653 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		533408821EEB962100DA3EEC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		5378415B1EEB918D006864F3 /* TSGTestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSGTestViewController.swift; sourceTree = "<group>"; };
 		538195D71EEB870D001A5653 /* Tesoro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tesoro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		538195DA1EEB870D001A5653 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		538195DC1EEB870D001A5653 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		538195DF1EEB870D001A5653 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		538195E11EEB870D001A5653 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		538195E41EEB870D001A5653 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -70,11 +72,12 @@
 			isa = PBXGroup;
 			children = (
 				538195DA1EEB870D001A5653 /* AppDelegate.swift */,
-				538195DC1EEB870D001A5653 /* ViewController.swift */,
+				5378415B1EEB918D006864F3 /* TSGTestViewController.swift */,
 				538195DE1EEB870D001A5653 /* Main.storyboard */,
 				538195E11EEB870D001A5653 /* Assets.xcassets */,
 				538195E31EEB870D001A5653 /* LaunchScreen.storyboard */,
 				538195E61EEB870D001A5653 /* Info.plist */,
+				533408821EEB962100DA3EEC /* GoogleService-Info.plist */,
 			);
 			path = Tesoro;
 			sourceTree = "<group>";
@@ -123,6 +126,7 @@
 				TargetAttributes = {
 					538195D61EEB870D001A5653 = {
 						CreatedOnToolsVersion = 8.3.2;
+						DevelopmentTeam = 4H6W93FDP8;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -151,6 +155,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				538195E51EEB870D001A5653 /* LaunchScreen.storyboard in Resources */,
+				533408831EEB962100DA3EEC /* GoogleService-Info.plist in Resources */,
 				538195E21EEB870D001A5653 /* Assets.xcassets in Resources */,
 				538195E01EEB870D001A5653 /* Main.storyboard in Resources */,
 			);
@@ -211,8 +216,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				538195DD1EEB870D001A5653 /* ViewController.swift in Sources */,
 				538195DB1EEB870D001A5653 /* AppDelegate.swift in Sources */,
+				5378415C1EEB918D006864F3 /* TSGTestViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -279,7 +284,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -324,7 +329,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -338,9 +343,11 @@
 			baseConfigurationReference = 6F50C88AA82F401E1E73F9D2 /* Pods-Tesoro.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 4H6W93FDP8;
 				INFOPLIST_FILE = Tesoro/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Cu.Tesoro;
+				PRODUCT_BUNDLE_IDENTIFIER = appworks.school.tesoro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -351,9 +358,11 @@
 			baseConfigurationReference = E44F235DF31FC5C55BFC3EC3 /* Pods-Tesoro.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 4H6W93FDP8;
 				INFOPLIST_FILE = Tesoro/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = Cu.Tesoro;
+				PRODUCT_BUNDLE_IDENTIFIER = appworks.school.tesoro;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -378,6 +387,7 @@
 				538195EB1EEB870D001A5653 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
