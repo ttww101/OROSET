@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16E195" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="cwn-qP-Iq3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="cwn-qP-Iq3">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -48,96 +49,34 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F3Y-Ig-Hvb">
-                                <rect key="frame" x="17" y="65" width="342" height="365"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </scrollView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Crown" translatesAutoresizingMaskIntoConstraints="NO" id="EIQ-ff-srC">
-                                <rect key="frame" x="24" y="438" width="49" height="55"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="羊皮紙 1" translatesAutoresizingMaskIntoConstraints="NO" id="SvM-ED-tFt">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Enemy" translatesAutoresizingMaskIntoConstraints="NO" id="jrU-GI-yJC">
-                                <rect key="frame" x="24" y="541" width="49" height="55"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="n9z-JN-0PX">
-                                <rect key="frame" x="20" y="518" width="334" height="15"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.77016059029999995" green="0.96660698779999998" blue="0.57607421869999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <real key="value" value="7.5"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RPs-ev-dnx">
-                                <rect key="frame" x="21" y="620" width="334" height="15"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.84705882349999995" green="0.41176470590000003" blue="0.41176470590000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                        <real key="value" value="7.5"/>
-                                    </userDefinedRuntimeAttribute>
-                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <stackView opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="SU6-Le-1ZV">
-                                <rect key="frame" x="34" y="501" width="290" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" bounces="NO" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F3Y-Ig-Hvb">
+                                <rect key="frame" x="16" y="84" width="343" height="483"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6KW-ca-xGe">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                        <color key="backgroundColor" red="0.25115288704668015" green="0.71149270304568524" blue="0.2283332287495374" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="15"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="keyPath" value="YES"/>
-                                        </userDefinedRuntimeAttributes>
-                                    </view>
-                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cpq-bA-hqe">
-                                        <rect key="frame" x="60" y="0.0" width="50" height="50"/>
-                                        <color key="backgroundColor" red="0.25115288699999999" green="0.711492703" blue="0.2283332287" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="15"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="keyPath" value="YES"/>
-                                        </userDefinedRuntimeAttributes>
-                                    </view>
-                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jNZ-Ji-2P8">
-                                        <rect key="frame" x="120" y="0.0" width="50" height="50"/>
-                                        <color key="backgroundColor" red="0.25115288699999999" green="0.711492703" blue="0.2283332287" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="15"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="keyPath" value="YES"/>
-                                        </userDefinedRuntimeAttributes>
-                                    </view>
-                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jQJ-8V-avS">
-                                        <rect key="frame" x="180" y="0.0" width="50" height="50"/>
-                                        <color key="backgroundColor" red="0.25115288699999999" green="0.711492703" blue="0.2283332287" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="15"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="keyPath" value="YES"/>
-                                        </userDefinedRuntimeAttributes>
-                                    </view>
-                                    <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Q0F-gt-Z9I">
-                                        <rect key="frame" x="240" y="0.0" width="50" height="50"/>
-                                        <color key="backgroundColor" red="0.25115288699999999" green="0.711492703" blue="0.2283332287" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                <integer key="value" value="15"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="boolean" keyPath="keyPath" value="YES"/>
-                                        </userDefinedRuntimeAttributes>
-                                    </view>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="Crown" translatesAutoresizingMaskIntoConstraints="NO" id="EIQ-ff-srC">
+                                        <rect key="frame" x="23" y="359" width="40" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="40" id="VU8-RJ-yBI"/>
+                                            <constraint firstAttribute="height" constant="40" id="hd0-Af-J4M"/>
+                                        </constraints>
+                                    </imageView>
                                 </subviews>
-                            </stackView>
+                            </scrollView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RPs-ev-dnx">
+                                <rect key="frame" x="21" y="620" width="333" height="10"/>
+                                <color key="backgroundColor" red="0.84705882349999995" green="0.41176470590000003" blue="0.41176470590000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="10" id="93O-fv-Lvy"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
                             <stackView opaque="NO" contentMode="scaleAspectFill" fixedFrame="YES" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="eMW-qB-Rk8">
                                 <rect key="frame" x="44" y="603" width="290" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -194,17 +133,43 @@
                                     </view>
                                 </subviews>
                             </stackView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="Enemy" translatesAutoresizingMaskIntoConstraints="NO" id="jrU-GI-yJC">
+                                <rect key="frame" x="44" y="572" width="40" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="40" id="Iga-l9-VzY"/>
+                                    <constraint firstAttribute="height" constant="40" id="usp-Gm-Y7o"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aoq-wV-Ctt">
+                                <rect key="frame" x="151" y="45" width="73" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="29"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="F3Y-Ig-Hvb" firstAttribute="trailing" secondItem="uv5-3P-fAn" secondAttribute="trailingMargin" id="3kg-Vk-r8Q"/>
+                            <constraint firstItem="jJh-rm-klh" firstAttribute="top" secondItem="SvM-ED-tFt" secondAttribute="bottom" id="5n2-D7-WdZ"/>
+                            <constraint firstItem="jrU-GI-yJC" firstAttribute="centerX" secondItem="AVX-Cq-Ser" secondAttribute="centerX" id="8cl-ti-I9A"/>
+                            <constraint firstAttribute="trailing" secondItem="SvM-ED-tFt" secondAttribute="trailing" id="CMI-zV-bme"/>
+                            <constraint firstItem="F3Y-Ig-Hvb" firstAttribute="top" secondItem="6mB-14-pEm" secondAttribute="bottom" constant="64" id="MAY-va-IgU"/>
+                            <constraint firstItem="F3Y-Ig-Hvb" firstAttribute="leading" secondItem="uv5-3P-fAn" secondAttribute="leadingMargin" id="YYv-Bc-R7o"/>
+                            <constraint firstItem="SvM-ED-tFt" firstAttribute="top" secondItem="uv5-3P-fAn" secondAttribute="top" id="csH-yy-dHm"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="RPs-ev-dnx" secondAttribute="trailing" constant="5" id="ewq-0y-W69"/>
+                            <constraint firstItem="jrU-GI-yJC" firstAttribute="top" secondItem="F3Y-Ig-Hvb" secondAttribute="bottom" constant="10" id="fi1-IC-ulB"/>
+                            <constraint firstItem="RPs-ev-dnx" firstAttribute="leading" secondItem="uv5-3P-fAn" secondAttribute="leadingMargin" constant="5" id="hCh-X3-w4x"/>
+                            <constraint firstItem="AVX-Cq-Ser" firstAttribute="top" secondItem="jrU-GI-yJC" secondAttribute="bottom" constant="5" id="oqM-aK-Al8"/>
+                            <constraint firstItem="SvM-ED-tFt" firstAttribute="leading" secondItem="uv5-3P-fAn" secondAttribute="leading" id="qxE-kS-UCv"/>
+                            <constraint firstItem="jJh-rm-klh" firstAttribute="top" secondItem="RPs-ev-dnx" secondAttribute="bottom" constant="37" id="xBV-wb-6MU"/>
+                        </constraints>
                     </view>
                     <connections>
                         <outlet property="ScrollMapView" destination="F3Y-Ig-Hvb" id="iDY-TV-o9H"/>
-                        <outlet property="crownImageView" destination="EIQ-ff-srC" id="Gti-X1-tpu"/>
-                        <outlet property="crownProgressView" destination="n9z-JN-0PX" id="pdz-DS-5mf"/>
                         <outlet property="enemyImageView" destination="jrU-GI-yJC" id="tTM-4P-G45"/>
                         <outlet property="enemyProgressDotsStackView" destination="eMW-qB-Rk8" id="gxd-Ye-Cpy"/>
                         <outlet property="enemyProgressView" destination="RPs-ev-dnx" id="XEC-UD-aht"/>
-                        <outlet property="userProgressDotsStackView" destination="SU6-Le-1ZV" id="1xY-yQ-RD7"/>
+                        <outlet property="userImageView" destination="EIQ-ff-srC" id="pKH-Hx-Wi7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GKd-tb-RrF" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -245,5 +210,6 @@
     <resources>
         <image name="Crown" width="1200" height="898"/>
         <image name="Enemy" width="600" height="600"/>
+        <image name="羊皮紙 1" width="1000" height="1414"/>
     </resources>
 </document>

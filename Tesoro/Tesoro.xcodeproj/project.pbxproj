@@ -147,7 +147,7 @@
 				TargetAttributes = {
 					538195D61EEB870D001A5653 = {
 						CreatedOnToolsVersion = 8.3.2;
-						DevelopmentTeam = 4H6W93FDP8;
+						DevelopmentTeam = RG55XLA874;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -371,7 +371,7 @@
 			baseConfigurationReference = 6F50C88AA82F401E1E73F9D2 /* Pods-Tesoro.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 4H6W93FDP8;
+				DEVELOPMENT_TEAM = RG55XLA874;
 				INFOPLIST_FILE = Tesoro/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -386,7 +386,7 @@
 			baseConfigurationReference = E44F235DF31FC5C55BFC3EC3 /* Pods-Tesoro.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 4H6W93FDP8;
+				DEVELOPMENT_TEAM = RG55XLA874;
 				INFOPLIST_FILE = Tesoro/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
