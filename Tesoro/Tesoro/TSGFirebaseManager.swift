@@ -12,6 +12,7 @@ import FirebaseDatabase
 class TSGFirebaseManager: NSObject {
     var ref: DatabaseReference!
     var isServer: Bool!
+    var questions: [String] = []
     var userCount: Int = 0 {
         didSet {
             self.ref.child("game_state").updateChildValues(["start": false])
@@ -57,6 +58,19 @@ class TSGFirebaseManager: NSObject {
         }
     }
     
+    func getQuestions(){
+        ref.child("game_state").observeSingleEvent(of: .value, with: { (snapshot) in
+            // Get user value
+            let value = snapshot.value as? NSDictionary
+            let questions = value?["questions"] as? [String] ?? []
+            if questions.count > 0 {
+                self.questions = questions
+            }
+        }) { (error) in
+            print(error.localizedDescription)
+        }
+    }
+    
     func userCountListener(comp: @escaping CountCompletionHandler) {
         ref.child("game_state").observe(DataEventType.childChanged, with: { (snapshot) in
             let value = snapshot.value as? NSDictionary
@@ -71,10 +85,12 @@ class TSGFirebaseManager: NSObject {
     
     func gameStatusListener(comp: @escaping GameStatusCompletionHandler) {
         ref.child("game_state").observe(DataEventType.childChanged, with: { (snapshot) in
-            guard let isStart = snapshot.value as? Bool else {
-                return
+            
+//            isStart
+            if let isStart = snapshot.value as? Bool {
+                comp(nil, isStart)
             }
-            comp(nil, isStart)
+            
         })
     }
     

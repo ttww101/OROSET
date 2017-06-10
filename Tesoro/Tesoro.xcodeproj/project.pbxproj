@@ -11,6 +11,7 @@
 		533408831EEB962100DA3EEC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 533408821EEB962100DA3EEC /* GoogleService-Info.plist */; };
 		5343C8841EEB98810086FBA5 /* TSGFirebaseManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5343C8831EEB98810086FBA5 /* TSGFirebaseManager.swift */; };
 		5346D85C1EEB9F3F00B0049B /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5346D85B1EEB9F3F00B0049B /* MainViewController.swift */; };
+		5346D85E1EEBB83600B0049B /* TSGVApiManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5346D85D1EEBB83600B0049B /* TSGVApiManager.swift */; };
 		5378415C1EEB918D006864F3 /* TSGTestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5378415B1EEB918D006864F3 /* TSGTestViewController.swift */; };
 		538195DB1EEB870D001A5653 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 538195DA1EEB870D001A5653 /* AppDelegate.swift */; };
 		538195E01EEB870D001A5653 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 538195DE1EEB870D001A5653 /* Main.storyboard */; };
@@ -22,6 +23,7 @@
 		533408821EEB962100DA3EEC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		5343C8831EEB98810086FBA5 /* TSGFirebaseManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSGFirebaseManager.swift; sourceTree = "<group>"; };
 		5346D85B1EEB9F3F00B0049B /* MainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		5346D85D1EEBB83600B0049B /* TSGVApiManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSGVApiManager.swift; sourceTree = "<group>"; };
 		5378415B1EEB918D006864F3 /* TSGTestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TSGTestViewController.swift; sourceTree = "<group>"; };
 		538195D71EEB870D001A5653 /* Tesoro.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Tesoro.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		538195DA1EEB870D001A5653 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -77,9 +79,10 @@
 			children = (
 				538195DA1EEB870D001A5653 /* AppDelegate.swift */,
 				5378415B1EEB918D006864F3 /* TSGTestViewController.swift */,
+				5346D85D1EEBB83600B0049B /* TSGVApiManager.swift */,
 				5343C8831EEB98810086FBA5 /* TSGFirebaseManager.swift */,
-				538195DE1EEB870D001A5653 /* Main.storyboard */,
 				5346D85B1EEB9F3F00B0049B /* MainViewController.swift */,
+				538195DE1EEB870D001A5653 /* Main.storyboard */,
 				538195E11EEB870D001A5653 /* Assets.xcassets */,
 				538195E31EEB870D001A5653 /* LaunchScreen.storyboard */,
 				538195E61EEB870D001A5653 /* Info.plist */,
@@ -224,6 +227,7 @@
 			files = (
 				538195DB1EEB870D001A5653 /* AppDelegate.swift in Sources */,
 				5378415C1EEB918D006864F3 /* TSGTestViewController.swift in Sources */,
+				5346D85E1EEBB83600B0049B /* TSGVApiManager.swift in Sources */,
 				5343C8841EEB98810086FBA5 /* TSGFirebaseManager.swift in Sources */,
 				5346D85C1EEB9F3F00B0049B /* MainViewController.swift in Sources */,
 			);

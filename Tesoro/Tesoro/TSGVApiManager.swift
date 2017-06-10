@@ -1,5 +1,5 @@
 //
-//  TSGTestViewController.swift
+//  TSGVApiManager.swift
 //  Tesoro
 //
 //  Created by CuGi on 2017/6/10.
@@ -9,46 +9,32 @@
 import UIKit
 import SwiftyJSON
 
-class TSGTestViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    let imagePicker = UIImagePickerController()
-    let session = URLSession.shared
+class TSGVApiManager: NSObject {
     
-    @IBOutlet weak var imageView: UIImageView!
-    @IBOutlet weak var spinner: UIActivityIndicatorView!
-    @IBOutlet weak var labelResults: UITextView!
-    @IBOutlet weak var faceResults: UITextView!
+    //api 呼叫方法
+//    TSGVApiManager.share.compareImg(with: pickedImage, ans: "airplane", comp: { (error, isTureAns) in
+//    if isTureAns {
+//    print("正確答案")
+//    }else {
+//    print("錯誤")
+//    }
+//    })
+    
+    var questionAnswer: String = ""
+    let session = URLSession.shared
     
     var googleAPIKey = "AIzaSyC8BeO17acuAK5LcZEgpCbrYPjxFhyNP14"
     var googleURL: URL {
         return URL(string: "https://vision.googleapis.com/v1/images:annotate?key=\(googleAPIKey)")!
     }
+    typealias LabelsCompletionHandler = (_ error:NSError?, _ isTrueAns: Bool) -> Void
+    var labelsCompletionHandler: LabelsCompletionHandler?
+    //MARK: Shared Instance
     
-    @IBAction func loadImageButtonTapped(_ sender: UIButton) {
-        imagePicker.allowsEditing = false
-        imagePicker.sourceType = .photoLibrary
-        
-        present(imagePicker, animated: true, completion: nil)
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        imagePicker.delegate = self
-        labelResults.isHidden = true
-        faceResults.isHidden = true
-        spinner.hidesWhenStopped = true
-    }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-}
-
-/// Image processing
-
-extension TSGTestViewController {
+    static let share : TSGVApiManager = {
+        let instance = TSGVApiManager()
+        return instance
+    }()
     
     func analyzeResults(_ dataToParse: Data) {
         
@@ -60,15 +46,18 @@ extension TSGTestViewController {
             let json = JSON(data: dataToParse)
             let errorObj: JSON = json["error"]
             
-            self.spinner.stopAnimating()
-            self.imageView.isHidden = true
-            self.labelResults.isHidden = false
-            self.faceResults.isHidden = false
-            self.faceResults.text = ""
+            //            self.spinner.stopAnimating()
+            //            self.imageView.isHidden = true
+            //            self.labelResults.isHidden = false
+            //            self.faceResults.isHidden = false
+            //            self.faceResults.text = ""
             
+            
+
             // Check for errors
             if (errorObj.dictionaryValue != [:]) {
-                self.labelResults.text = "Error code \(errorObj["code"]): \(errorObj["message"])"
+                self.labelsCompletionHandler!(NSError(), false)
+                //                self.labelResults.text = "Error code \(errorObj["code"]): \(errorObj["message"])"
             } else {
                 // Parse the response
                 print(json)
@@ -81,7 +70,7 @@ extension TSGTestViewController {
                     
                     let numPeopleDetected:Int = faceAnnotations.count
                     
-                    self.faceResults.text = "People detected: \(numPeopleDetected)\n\nEmotions detected:\n"
+                    //                    self.faceResults.text = "People detected: \(numPeopleDetected)\n\nEmotions detected:\n"
                     
                     var emotionTotals: [String: Double] = ["sorrow": 0, "joy": 0, "surprise": 0, "anger": 0]
                     var emotionLikelihoods: [String: Double] = ["VERY_LIKELY": 0.9, "LIKELY": 0.75, "POSSIBLE": 0.5, "UNLIKELY":0.25, "VERY_UNLIKELY": 0.0]
@@ -100,10 +89,10 @@ extension TSGTestViewController {
                     for (emotion, total) in emotionTotals {
                         let likelihood:Double = total / Double(numPeopleDetected)
                         let percent: Int = Int(round(likelihood * 100))
-                        self.faceResults.text! += "\(emotion): \(percent)%\n"
+                        //                        self.faceResults.text! += "\(emotion): \(percent)%\n"
                     }
                 } else {
-                    self.faceResults.text = "No faces found"
+                    //                    self.faceResults.text = "No faces found"
                 }
                 
                 // Get label annotations
@@ -124,72 +113,30 @@ extension TSGTestViewController {
                             labelResultsText += "\(label)"
                         }
                     }
-                    self.labelResults.text = labelResultsText
+                    print(labelResultsText)
+                    for q in labels {
+                        if q == self.questionAnswer {
+                             self.labelsCompletionHandler!(nil, true)
+                            return
+                        }
+                    }
+                    self.labelsCompletionHandler!(nil, false)
+                    //                    self.labelResults.text = labelResultsText
                 } else {
-                    self.labelResults.text = "No labels found"
+                    //                    self.labelResults.text = "No labels found"
                 }
+                
             }
         })
         
     }
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            imageView.contentMode = .scaleAspectFit
-            imageView.isHidden = true // You could optionally display the image here by setting imageView.image = pickedImage
-            spinner.startAnimating()
-            faceResults.isHidden = true
-            labelResults.isHidden = true
-            
-            // Base64 encode the image and create the request
-//            let binaryImageData = base64EncodeImage(pickedImage)
-//            createRequest(with: binaryImageData)
-
-//            TSGVApiManager.share.compareImg(with: binaryImageData, comp: { (error, isTrueAns) in
-//                if isTrueAns {
-//                    print("正確答案")
-//                }else{
-//                    print("錯誤")
-//                }
-//            })
-            
-            
-            TSGVApiManager.share.compareImg(with: pickedImage, ans: "airplane", comp: { (error, isTureAns) in
-                if isTureAns {
-                    print("正確答案")
-                }else {
-                    print("錯誤")
-                }
-            })
-            
-        }
-        
-        dismiss(animated: true, completion: nil)
-    }
     
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        dismiss(animated: true, completion: nil)
-    }
-    
-    func resizeImage(_ imageSize: CGSize, image: UIImage) -> Data {
-        UIGraphicsBeginImageContext(imageSize)
-        image.draw(in: CGRect(x: 0, y: 0, width: imageSize.width, height: imageSize.height))
-        let newImage = UIGraphicsGetImageFromCurrentImageContext()
-        let resizedImage = UIImagePNGRepresentation(newImage!)
-        UIGraphicsEndImageContext()
-        return resizedImage!
-    }
-}
-
-
-/// Networking
-
-extension TSGTestViewController {
     func base64EncodeImage(_ image: UIImage) -> String {
         var imagedata = UIImagePNGRepresentation(image)
         
         // Resize the image if it exceeds the 2MB API limit
-        if (imagedata?.count > 2097152) {
+        if ((imagedata?.count)! > 2097152) {
             let oldSize: CGSize = image.size
             let newSize: CGSize = CGSize(width: 800, height: oldSize.height / oldSize.width * 800)
             imagedata = resizeImage(newSize, image: image)
@@ -198,8 +145,12 @@ extension TSGTestViewController {
         return imagedata!.base64EncodedString(options: .endLineWithCarriageReturn)
     }
     
-    func createRequest(with imageBase64: String) {
+    func compareImg(with image: UIImage, ans: String, comp: @escaping LabelsCompletionHandler) {
         // Create our request URL
+        self.questionAnswer = ans
+        
+        let imageBase64 = base64EncodeImage(image)
+        
         
         var request = URLRequest(url: googleURL)
         request.httpMethod = "POST"
@@ -232,7 +183,7 @@ extension TSGTestViewController {
         }
         
         request.httpBody = data
-        
+        labelsCompletionHandler = comp
         // Run the request on a background thread
         DispatchQueue.global().async { self.runRequestOnBackgroundThread(request) }
     }
@@ -251,29 +202,14 @@ extension TSGTestViewController {
         
         task.resume()
     }
-}
-
-
-// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
-// Consider refactoring the code to use the non-optional operators.
-fileprivate func < <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
-    switch (lhs, rhs) {
-    case let (l?, r?):
-        return l < r
-    case (nil, _?):
-        return true
-    default:
-        return false
+    
+    func resizeImage(_ imageSize: CGSize, image: UIImage) -> Data {
+        UIGraphicsBeginImageContext(imageSize)
+        image.draw(in: CGRect(x: 0, y: 0, width: imageSize.width, height: imageSize.height))
+        let newImage = UIGraphicsGetImageFromCurrentImageContext()
+        let resizedImage = UIImagePNGRepresentation(newImage!)
+        UIGraphicsEndImageContext()
+        return resizedImage!
     }
-}
-
-// FIXME: comparison operators with optionals were removed from the Swift Standard Libary.
-// Consider refactoring the code to use the non-optional operators.
-fileprivate func > <T : Comparable>(lhs: T?, rhs: T?) -> Bool {
-    switch (lhs, rhs) {
-    case let (l?, r?):
-        return l > r
-    default:
-        return rhs < lhs
-    }
+    
 }
