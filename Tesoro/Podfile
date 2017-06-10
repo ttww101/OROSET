@@ -8,7 +8,7 @@ target 'Tesoro' do
   pod 'SwiftyJSON'
   pod 'Firebase/Core'
   pod 'Firebase/Database'
-
+  pod 'Spring', :git => 'https://github.com/MengTo/Spring.git', :branch => 'swift3'
   # Pods for Tesoro
 
 end
