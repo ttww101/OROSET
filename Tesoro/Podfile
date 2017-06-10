@@ -9,6 +9,7 @@ target 'Tesoro' do
   pod 'Firebase/Core'
   pod 'Firebase/Database'
   pod 'Spring', :git => 'https://github.com/MengTo/Spring.git', :branch => 'swift3'
+  pod 'Gifu'
   # Pods for Tesoro
 
 end
