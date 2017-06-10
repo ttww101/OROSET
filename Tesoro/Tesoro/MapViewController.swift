@@ -17,6 +17,16 @@ class MapViewController: UIViewController {
     @IBOutlet weak var enemyProgressView: UIView!
     @IBOutlet weak var userProgressDotsStackView: UIStackView!
     @IBOutlet weak var enemyProgressDotsStackView: UIStackView!
+    var myScore = 0 {
+        didSet {
+            print("我的分數變動為\(myScore)")
+        }
+    }
+    var enemyScore = 0{
+        didSet {
+            print("敵人的分數變動為\(enemyScore)")
+        }
+    }
     
     let mapImageView = UIImageView()
     
@@ -31,6 +41,30 @@ class MapViewController: UIViewController {
         testView.layer.cornerRadius = testView.frame.width / 2
         testView.layer.masksToBounds = true
 //        self.view.addSubview(testView)
+        
+        TSGFirebaseManager.share.userStatusListener { (error, userStatus) in
+            if TSGFirebaseManager.share.isServer {
+                if let serverDic = userStatus.object(forKey: "server") as? NSDictionary,
+                    let serverScore = serverDic.object(forKey: "score") as? Int{
+                    self.myScore = serverScore
+                }
+                if let clientDic = userStatus.object(forKey: "client") as? NSDictionary,
+                    let enemScore = clientDic.object(forKey: "score") as? Int{
+                    self.enemyScore = enemScore
+                }
+            }else {
+                if let clientDic = userStatus.object(forKey: "client") as? NSDictionary,
+                    let serverScore = clientDic.object(forKey: "score") as? Int{
+                    self.myScore = serverScore
+                }
+                if let serverDic = userStatus.object(forKey: "server") as? NSDictionary,
+                    let enemScore = serverDic.object(forKey: "score") as? Int{
+                    self.enemyScore = enemScore
+                }
+            }
+//            print("User 狀態變動\(userStatus)")
+//            if userStatus.key
+        }
         
     }
     

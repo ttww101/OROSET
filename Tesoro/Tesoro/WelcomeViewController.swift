@@ -11,12 +11,41 @@ import UIKit
 class WelcomeViewController: UIViewController {
 
     @IBOutlet weak var connectButton: UIButton!
+    var userCount: Int = 0 {
+        didSet {
+            if userCount == 2 {
+                self.connectButton.isEnabled = isServer
+            }else {
+                self.connectButton.isEnabled = false
+            }
+        }
+    }
+    var isServer  = false 
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        connectButton.isEnabled = false
         
         setupViewController()
         
+        TSGFirebaseManager.share.gameStatusListener { (error, isGameStart) in
+            if (isGameStart) {
+                print("遊戲開始")
+                self.performSegue(withIdentifier: "toMapView", sender: nil)
+            }else{
+                print("遊戲結束")
+            }
+        }
+        
+        TSGFirebaseManager.share.userStatusListener { (error, userStatus) in
+            self.isServer = TSGFirebaseManager.share.isServer
+            self.userCount = TSGFirebaseManager.share.userCount
+//            print("User 狀態變動\(userStatus)")
+        }
+        
+    }
+    @IBAction func startGame(_ sender: Any) {
+        TSGFirebaseManager.share.gmaeStart()
     }
 
     func connectComponent() {
