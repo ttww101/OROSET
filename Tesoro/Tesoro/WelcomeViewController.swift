@@ -31,7 +31,7 @@ class WelcomeViewController: UIViewController {
         TSGFirebaseManager.share.gameStatusListener { (error, isGameStart) in
             if (isGameStart) {
                 print("遊戲開始")
-                self.performSegue(withIdentifier: "toMapView", sender: nil)
+                self.connectGame()
             }else{
                 print("遊戲結束")
             }
@@ -44,13 +44,12 @@ class WelcomeViewController: UIViewController {
         }
         
     }
-    @IBAction func startGame(_ sender: Any) {
-        TSGFirebaseManager.share.gmaeStart()
-    }
-
-    func connectComponent() {
+    
+    func connectGame() {
         
         if let vc = storyboard?.instantiateViewController(withIdentifier: "MapViewController") as? MapViewController {
+            
+            TSGFirebaseManager.share.gmaeStart()
             
             self.present(vc, animated: true, completion: { 
                 
@@ -62,7 +61,7 @@ class WelcomeViewController: UIViewController {
     
     func setupViewController() {
         
-        connectButton.addTarget(self, action: #selector(connectComponent), for: .touchUpInside)
+        connectButton.addTarget(self, action: #selector(connectGame), for: .touchUpInside)
         
     }
     

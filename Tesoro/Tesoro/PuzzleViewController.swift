@@ -12,9 +12,30 @@ import ImagePicker
 
 class PuzzleViewController: UIViewController, ImagePickerDelegate {
 
+    @IBAction func openCamera(_ sender: Any) {
+        
+        print("camera")
+        
+    }
+    
+    @IBOutlet weak var cameraButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        
+    }
+    
+    func openCamera() {
+        
+        print("camera")
+        
+    }
+    
+    func setupViewController() {
+    
+        
+    
     }
     
     override func viewDidAppear(_ animated: Bool) {
