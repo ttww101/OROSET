@@ -196,6 +196,18 @@ class PuzzleViewController: UIViewController, ImagePickerDelegate, UIImagePicker
                                               height:questionView.frame.width * 1.2));
         imageView.image = UIImage(named:"special")
         
+<<<<<<< HEAD
+        imageView2  = UIImageView(frame:CGRect(x:questionView.frame.origin.x - 10,
+                                              y:questionView.frame.origin.y ,
+                                              width:questionView.frame.width ,
+                                              height:questionView.frame.width * 0.7));
+        imageView2.image = UIImage(named:"blood")
+        imageView.contentMode = .scaleAspectFit
+        imageView2.contentMode = .scaleAspectFit
+        questionView.addSubview(imageView)
+        questionView.addSubview(imageView2)
+=======
+>>>>>>> alert
     }
     
     
@@ -386,10 +398,12 @@ class PuzzleViewController: UIViewController, ImagePickerDelegate, UIImagePicker
                 if isTureAns {
                     TSGFirebaseManager.share.updateScore(score: self.myScore + 1)
                     print("正確答案")
-                        self.alertUser(title: "System", with: "Correct Answer!", question: nil)
+<<<<<<< HEAD
                     self.dismiss(animated: true, completion: nil)
-                    print("正確答案")
-                
+                    
+=======
+                    self.alertUser(title: "System", with: "Correct Answer!", question: nil)
+>>>>>>> alert
                 }else {
                     print("錯誤")
                     self.alertUser(title: "System", with: "Wrong Answer!", question: nil)
@@ -405,10 +419,12 @@ class PuzzleViewController: UIViewController, ImagePickerDelegate, UIImagePicker
             if isTrue {
                   TSGFirebaseManager.share.updateScore(score: self.myScore + 1)
                 print("正確")
-                 self.alertUser(title: "System", with: "Correct!", question: nil)
-
-                print("正確")
-               
+<<<<<<< HEAD
+                self.dismiss(animated: true, completion: nil)
+                
+=======
+                self.alertUser(title: "System", with: "Correct!", question: nil)
+>>>>>>> alert
             }else {
                 print("錯誤")
                 self.alertUser(title: "System", with: "Wrong!", question: nil)
@@ -425,12 +441,11 @@ class PuzzleViewController: UIViewController, ImagePickerDelegate, UIImagePicker
         let title = title
         let message = message
         let popup = PopupDialog(title: title, message: message, image: nil, buttonAlignment: .vertical, transitionStyle: .bounceUp, gestureDismissal: true) {
-            if message == "Correct!" {
-                  self.dismiss(animated: true, completion: nil)
-            }
+            
         }
         
         let buttonOne = DefaultButton(title: "OK", height: 60) {
+            
         }
         
         // Add buttons to dialog

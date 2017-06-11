@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import PopupDialog
 
 class MapViewController: UIViewController {
     
@@ -86,6 +87,33 @@ class MapViewController: UIViewController {
             }
         }
         
+        alertUser(with: "很久很久以前，有個國家叫 愛坡沃獅國，正值百年難得一見的旱災，女王旑霓十分苦惱，這時鄰國有位自耕農-肉蟻，動起了歪腦筋，企圖哄抬國際菜價，於是開了船出海...", question: nil)
+        
+    }
+    
+    func alertUser(with str: String, question: String?) {
+        
+        let title = "Story"
+        let message = str
+        let popup = PopupDialog(title: title, message: message, image: nil, buttonAlignment: .vertical, transitionStyle: .bounceUp, gestureDismissal: true) {
+            if let q = question {
+                self.connectGame(question: q)
+            }
+        }
+        
+        let buttonOne = DefaultButton(title: "Got it!", height: 60) {
+            
+        }
+        
+        // Add buttons to dialog
+        popup.addButtons([buttonOne])
+        
+        let deadlineTime = DispatchTime.now() + .seconds(1)
+        DispatchQueue.main.asyncAfter(deadline: deadlineTime) {
+            
+                self.present(popup, animated: true, completion: nil)
+            
+        }
     }
     
     func userMove(to game: Int) {
@@ -228,8 +256,6 @@ class MapViewController: UIViewController {
     
     func startGame(sender: UIButton) {
         
-        enemyMove(to: sender.tag)
-        
         let p1 = CGPoint(x: self.userImageView.frame.midX, y: self.userImageView.frame.midY)
         let p2 = CGPoint(x: sender.frame.midX, y: sender.frame.midY)
         self.addLine(fromPoint: p1, toPoint: p2)
@@ -242,17 +268,28 @@ class MapViewController: UIViewController {
             print("動畫完成")
             
             for (_,q) in self.questions.enumerated() {
-                
+//                ["cabbage", "forest", "juice","special"]
                 if !self.states.contains(q) {
+                    
+                    if q == "cabbage" {
+                        self.alertUser(with: "翻船啦！！！\n咦？耳邊傳來...", question: q)
+                    } else if q == "forest" {
+                        
+                     self.alertUser(with: "木乃伊：跟我玩～聽說這個解開就會有寶藏！", question: q)
+                    } else if q == "juice" {
+                        
+                        self.alertUser(with: "走進森林，發現...", question: q)
+                        
+                    } else if q == "special" {
+                        self.alertUser(with: "就這樣一路過關斬將拔起石中劍，砍爆巨龍，可是寶藏呢？\n咦？這龍血中的 RNA 貌似要傳達什麼訊息，難道就是寶藏的位置嗎？", question: q)
+
+                    }
+                    
                     self.states.append(q)
-                     self.connectGame(question: q)
                     break
                 }
                 
             }
-            
-            
-            
             
         }
         

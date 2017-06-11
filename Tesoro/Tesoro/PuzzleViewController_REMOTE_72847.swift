@@ -25,7 +25,6 @@ class PuzzleViewController: UIViewController, ImagePickerDelegate, UIImagePicker
     let masks = [2,5,7,8,1,0]
     let sounds = ["pianoC","pianoA","pianoB","pianoB","pianoA","pianoG","pianoE"]
     var imageView : UIImageView = UIImageView()
-    var imageView2 : UIImageView = UIImageView()
     var soundIndex = 0
     var myScore = 0
     @IBOutlet var questionView: SpringView!
@@ -33,69 +32,18 @@ class PuzzleViewController: UIViewController, ImagePickerDelegate, UIImagePicker
         case cabbage = "cabbage"
         case forest = "forest"
         case juice = "juice"
-        case special = "special"
     }
     
-    var questionName = Question.special
+    var questionName = Question.forest
     var questionNameStr = ""
     
     @IBAction func openCamera(_ sender: Any) {
-        if questionName == .special {
-            
-            let alertController = UIAlertController(
-                title: "□LL□HEBE□T□□ID",
-                message: "請填空",
-                preferredStyle: .alert)
-            
-            // 建立兩個輸入框
-            alertController.addTextField {
-                (textField: UITextField!) -> Void in
-                textField.placeholder = "帳號"
-            }
-            
-            // 建立[取消]按鈕
-            let cancelAction = UIAlertAction(
-                title: "取消",
-                style: .cancel,
-                handler: nil)
-            alertController.addAction(cancelAction)
-            
-            // 建立[登入]按鈕
-            let okAction = UIAlertAction(
-                title: "輸入",
-                style: UIAlertActionStyle.default) {
-                    (action: UIAlertAction!) -> Void in
-                    let acc =
-                        (alertController.textFields?.first)!
-                            as UITextField
-                    
-                    if(acc.text?.caseInsensitiveCompare("ATSEN") == ComparisonResult.orderedSame || acc.text?.caseInsensitiveCompare("ALLTHEBESTENID") == ComparisonResult.orderedSame){
-                        print("成功")
-                    }else {
-                        print("失敗")
-                    }
-                    
-//                    print("輸入的帳號為：\(acc.text)")
-//                    print("輸入的密碼為：\(password.text)")
-            }
-            alertController.addAction(okAction)
-            
-            // 顯示提示框
-            self.present(
-                alertController,
-                animated: true,
-                completion: nil)
-            
-            
-        }else{
-            imagePicker.delegate = self
-            print("camera")
-            let imagePickerController = ImagePickerController()
-            imagePickerController.imageLimit = 1
-            imagePickerController.delegate = self
-            present(imagePickerController, animated: true, completion: nil)
-        }
-
+        imagePicker.delegate = self
+        print("camera")
+        let imagePickerController = ImagePickerController()
+        imagePickerController.imageLimit = 1
+        imagePickerController.delegate = self
+        present(imagePickerController, animated: true, completion: nil)
     }
     
     @IBOutlet weak var cameraButton: UIButton!
@@ -111,12 +59,6 @@ class PuzzleViewController: UIViewController, ImagePickerDelegate, UIImagePicker
         }
         
         showQuestion()
-        if questionName == .special {
-            cameraButton.setTitle("□LL□HEBE□T□□ID", for: .normal)
-        }else {
-            cameraButton.setTitle("TakePhoto", for: .normal)
-        }
-        
     }
     
     func playAudio(sound: String) {
@@ -139,10 +81,7 @@ class PuzzleViewController: UIViewController, ImagePickerDelegate, UIImagePicker
             creatForest()
         case .juice:
             print("果汁")
-            creatJuice()
-        case .special:
-            print("特殊關卡")
-            creatSpecial()
+            creatForest()
         }
     }
     
@@ -177,27 +116,8 @@ class PuzzleViewController: UIViewController, ImagePickerDelegate, UIImagePicker
         btn.frame = CGRect(x: 100, y: 500, width: 200, height: 100)
         btn.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
         self.view.addSubview(btn)
-    }
-    
-    func creatJuice() {
-        imageView  = UIImageView(frame:CGRect(x:questionView.frame.origin.x - 10,
-                                              y:questionView.frame.origin.y,
-                                              width:343,
-                                              height:569 / 2.5));
-        imageView.image = UIImage(named:"Forest-Wall-Mural")?
-            .waterMarkedImage(waterMarkText: "2017/06/11 13:00")
-        questionView.addSubview(imageView)
-    }
-    
-    func creatSpecial() {
-        imageView  = UIImageView(frame:CGRect(x:questionView.frame.origin.x - 40,
-                                              y:questionView.frame.origin.y + 170,
-                                              width:questionView.frame.width * 1.2,
-                                              height:questionView.frame.width * 1.2));
-        imageView.image = UIImage(named:"special")
         
     }
-    
     
     func buttonAction(sender: UIButton!) {
         if indexForMask < masks.count {
@@ -210,7 +130,15 @@ class PuzzleViewController: UIViewController, ImagePickerDelegate, UIImagePicker
       
     }
     
-
+    func creatJuice() {
+        imageView  = UIImageView(frame:CGRect(x:questionView.frame.origin.x - 10,
+                                              y:questionView.frame.origin.y,
+                                              width:343,
+                                              height:569 / 2.5));
+        imageView.image = UIImage(named:"Forest-Wall-Mural")?
+            .waterMarkedImage(waterMarkText: "2017/06/11 13:00")
+        questionView.addSubview(imageView)
+    }
     
     func play() {
         if soundIndex < sounds.count {
@@ -250,106 +178,82 @@ class PuzzleViewController: UIViewController, ImagePickerDelegate, UIImagePicker
     }
     
     func maskChangeTo(to: Int) {
-//        let masks = [2,5,7,8,1,0]
-        mmmm.animation = "pop"
-        mmmm.curve = "spring"
-        mmmm.duration = 1.0
         switch to {
         case 0:
             //向右90
-//            mmmm.animation = "flipX"
-//            mmmm.curve = "saseInOut"
-//            mmmm.duration = 1.0
-            
-            UIView.animate(withDuration: 0.5, delay: 0.0, options: UIViewAnimationOptions.transitionFlipFromLeft, animations: {
+            mmmm.animation = "flipX"
+            mmmm.curve = "saseInOut"
+            mmmm.duration = 1.0
+            mmmm.animateNext {
                 let angle = 0 * CGFloat.pi / 180
                 self.mmmm.transform = CGAffineTransform(rotationAngle: CGFloat(angle));
-                self.mmmm.layoutIfNeeded()
-            }, completion: nil)
-            
-//            mmmm.animateNext {
-//                let angle = 0 * CGFloat.pi / 180
-//                self.mmmm.transform = CGAffineTransform(rotationAngle: CGFloat(angle));
-//            }
+            }
         case 1:
             //向右90
-//            mmmm.animation = "flipX"
-//            mmmm.curve = "saseInOut"
-//            mmmm.duration = 1.0
-            
-            UIView.animate(withDuration: 0.5, delay: 0.0, options: UIViewAnimationOptions.transitionFlipFromRight, animations: {
+            mmmm.animation = "flipX"
+            mmmm.curve = "saseInOut"
+            mmmm.duration = 1.0
+            mmmm.animateNext {
                 let angle = 90 * CGFloat.pi / 180
                 self.mmmm.transform = CGAffineTransform(rotationAngle: CGFloat(angle));
-                self.mmmm.layoutIfNeeded()
-            }, completion: nil)
-            
-//            mmmm.animateNext {
-//                let angle = 90 * CGFloat.pi / 180
-//                self.mmmm.transform = CGAffineTransform(rotationAngle: CGFloat(angle));
-//            }
+            }
         //                self.mmmm.transform = CGAffineTransform(scaleX: -1,y: 1);
         case 2:
             //向左90
-            UIView.animate(withDuration: 0.5, delay: 0.0, options: UIViewAnimationOptions.transitionFlipFromLeft, animations: {
+            mmmm.animation = "flipX"
+            mmmm.curve = "saseInOut"
+            mmmm.duration = 1.0
+            mmmm.animateNext {
                 let angle = -90 * CGFloat.pi / 180
                 self.mmmm.transform = CGAffineTransform(rotationAngle: CGFloat(angle));
-                self.mmmm.layoutIfNeeded()
-            }, completion: nil)
+            }
         case 3:
             //鏡向左
-//            mmmm.animation = "flipX"
-//            mmmm.curve = "saseInOut"
-//            mmmm.duration = 1.0
+            mmmm.animation = "flipX"
+            mmmm.curve = "saseInOut"
+            mmmm.duration = 1.0
             mmmm.animateNext {
                 self.mmmm.transform = CGAffineTransform(scaleX: -1,y: 1);
             }
         case 4:
             //鏡向上
-//            mmmm.animation = "flipX"
-//            mmmm.curve = "saseInOut"
-//            mmmm.duration = 1.0
+            mmmm.animation = "flipX"
+            mmmm.curve = "saseInOut"
+            mmmm.duration = 1.0
             mmmm.animateNext {
                 self.mmmm.transform = CGAffineTransform(scaleX: 1,y: -1);
             }
         case 5:
             //鏡向上
             self.mmmm.image = UIImage(named:"st2")
-//            mmmm.animation = "flipX"
-//            mmmm.curve = "saseInOut"
-//            mmmm.duration = 1.0
+            mmmm.animation = "flipX"
+            mmmm.curve = "saseInOut"
+            mmmm.duration = 1.0
             mmmm.animateNext {
                 let angle = -90 * CGFloat.pi / 180
                 self.mmmm.transform = CGAffineTransform(rotationAngle: CGFloat(angle));
             }
         case 6:
-//            mmmm.animation = "flipX"
-//            mmmm.curve = "saseInOut"
-//            mmmm.duration = 1.0
+            mmmm.animation = "flipX"
+            mmmm.curve = "saseInOut"
+            mmmm.duration = 1.0
             mmmm.animateNext {
                 let angle = -90 * CGFloat.pi / 180
                 self.mmmm.transform = CGAffineTransform(rotationAngle: CGFloat(angle));
             }
         case 7:
-//            mmmm.animation = "flipX"
-//            mmmm.curve = "saseInOut"
-//            mmmm.duration = 1.0
-            
-            UIView.animate(withDuration: 0.5, delay: 0.0, options: UIViewAnimationOptions.transitionCurlUp, animations: {
+            mmmm.animation = "flipX"
+            mmmm.curve = "saseInOut"
+            mmmm.duration = 1.0
+            mmmm.animateNext {
                 let angle = -180 * CGFloat.pi / 180
                 self.mmmm.transform = CGAffineTransform(rotationAngle: CGFloat(angle));
-                self.mmmm.layoutIfNeeded()
-            }, completion: nil)
-            
-            
-//            mmmm.animateNext {
-//                let angle = -180 * CGFloat.pi / 180
-//                self.mmmm.transform = CGAffineTransform(rotationAngle: CGFloat(angle));
-//            }
+            }
         case 8:
             mmmm.image = UIImage(named:"puzzleMask")
-//            mmmm.animation = "flipX"
-//            mmmm.curve = "saseInOut"
-//            mmmm.duration = 1.0
+            mmmm.animation = "flipX"
+            mmmm.curve = "saseInOut"
+            mmmm.duration = 1.0
             mmmm.animateNext {
                 let angle = -180 * CGFloat.pi / 180
                 self.mmmm.transform = CGAffineTransform(rotationAngle: CGFloat(angle));
@@ -385,11 +289,9 @@ class PuzzleViewController: UIViewController, ImagePickerDelegate, UIImagePicker
             TSGVApiManager.share.compareImg(with: pickedImage, ans: self.questionNameStr, comp: { (error, isTureAns) in
                 if isTureAns {
                     TSGFirebaseManager.share.updateScore(score: self.myScore + 1)
-                    print("正確答案")
-                        self.alertUser(title: "System", with: "Correct Answer!", question: nil)
                     self.dismiss(animated: true, completion: nil)
                     print("正確答案")
-                
+                    self.alertUser(title: "System", with: "Correct Answer!", question: nil)
                 }else {
                     print("錯誤")
                     self.alertUser(title: "System", with: "Wrong Answer!", question: nil)
@@ -403,12 +305,9 @@ class PuzzleViewController: UIViewController, ImagePickerDelegate, UIImagePicker
         imagePicker.dismiss(animated: true, completion: nil)
         TSGVApiManager.share.compareImg(with: images[0], ans: self.questionNameStr) { (error, isTrue) in
             if isTrue {
-                  TSGFirebaseManager.share.updateScore(score: self.myScore + 1)
+                self.dismiss(animated: true, completion: nil)
                 print("正確")
-                 self.alertUser(title: "System", with: "Correct!", question: nil)
-
-                print("正確")
-               
+                self.alertUser(title: "System", with: "Correct!", question: nil)
             }else {
                 print("錯誤")
                 self.alertUser(title: "System", with: "Wrong!", question: nil)
@@ -425,12 +324,11 @@ class PuzzleViewController: UIViewController, ImagePickerDelegate, UIImagePicker
         let title = title
         let message = message
         let popup = PopupDialog(title: title, message: message, image: nil, buttonAlignment: .vertical, transitionStyle: .bounceUp, gestureDismissal: true) {
-            if message == "Correct!" {
-                  self.dismiss(animated: true, completion: nil)
-            }
+            
         }
         
         let buttonOne = DefaultButton(title: "OK", height: 60) {
+            
         }
         
         // Add buttons to dialog
