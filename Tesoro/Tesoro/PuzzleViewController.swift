@@ -71,8 +71,10 @@ class PuzzleViewController: UIViewController, ImagePickerDelegate, UIImagePicker
                     
                     if(acc.text?.caseInsensitiveCompare("ATSEN") == ComparisonResult.orderedSame || acc.text?.caseInsensitiveCompare("ALLTHEBESTENID") == ComparisonResult.orderedSame){
                         print("成功")
+                        self.alertUser(title: "Congraturations", with: "All the best for Enid!", question: nil)
+                        TSGFirebaseManager.share.updateScore(score: 6)
                     }else {
-                        print("失敗")
+                        self.alertUser(title: "Wrong", with: "Please try again...", question: nil)
                     }
                     
 //                    print("輸入的帳號為：\(acc.text)")
@@ -172,9 +174,10 @@ class PuzzleViewController: UIViewController, ImagePickerDelegate, UIImagePicker
         questionView.addSubview(mmmm)
         
         let btn = UIButton(type: .custom) as UIButton
-        btn.backgroundColor = .blue
-        btn.setTitle("翻轉", for: .normal)
         btn.frame = CGRect(x: 100, y: 500, width: 200, height: 100)
+        let bgImage = UIImage(named: "btn")
+        btn.setBackgroundImage(bgImage, for: .normal)
+        btn.setTitle("Rotate", for: .normal)
         btn.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
         self.view.addSubview(btn)
     }
