@@ -11,6 +11,7 @@ target 'Tesoro' do
   pod 'Spring', :git => 'https://github.com/MengTo/Spring.git', :branch => 'swift3'
   pod 'Gifu'
   pod 'ImagePicker'
+  pod 'PopupDialog'
   # Pods for Tesoro
 
 end

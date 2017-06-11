@@ -21,6 +21,7 @@ PODS:
   - GoogleToolboxForMac/NSData+zlib (2.1.1):
     - GoogleToolboxForMac/Defines (= 2.1.1)
   - ImagePicker (2.1.1)
+  - PopupDialog (0.5.4)
   - Spring (1.0.3)
   - SwiftyJSON (3.1.4)
 
@@ -30,6 +31,7 @@ DEPENDENCIES:
   - Firebase/Database
   - Gifu
   - ImagePicker
+  - PopupDialog
   - Spring (from `https://github.com/MengTo/Spring.git`, branch `swift3`)
   - SwiftyJSON
 
@@ -53,9 +55,10 @@ SPEC CHECKSUMS:
   Gifu: 56a4d8f1092399159fa32662aa2232158b48d8ac
   GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
   ImagePicker: fe4c699abb56ff03994fa98d8b02e3883ee118be
+  PopupDialog: 75cf955693590b0cb2fdde00223fb65d99c57247
   Spring: 3f02b5dc3308572ef177b3cad0fa7bbc4b0706f7
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: be6be6faf8ea67661f74a02cad336a99bd79b5e8
+PODFILE CHECKSUM: 1715907bc2814b733727e0622d0019ff48bf1425
 
 COCOAPODS: 1.2.0
