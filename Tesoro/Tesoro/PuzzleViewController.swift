@@ -117,6 +117,19 @@ class PuzzleViewController: UIViewController, ImagePickerDelegate, UIImagePicker
             cameraButton.setTitle("TakePhoto", for: .normal)
         }
         
+        TSGFirebaseManager.share.gameStatusListener { (error, isGameStart) in
+            if (isGameStart) {
+                print("遊戲開始")
+            }else{
+                print("遊戲結束")
+                if TSGFirebaseManager.share.isWinnder {
+                    print("贏家")
+                }else {
+                    print("輸家")
+                }
+            }
+        }
+        
     }
     
     func playAudio(sound: String) {
