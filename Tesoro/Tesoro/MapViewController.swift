@@ -21,11 +21,13 @@ class MapViewController: UIViewController {
             if myScore >= 6 {
                 TSGFirebaseManager.share.isWinnder = true
                 TSGFirebaseManager.share.gmaeOver()
+                userMove(to: myScore)
             }
         }
     }
     var enemyScore = 0{
         didSet {
+            enemyMove(to: enemyScore)
             print("敵人的分數變動為\(enemyScore)")
         }
     }
