@@ -10,6 +10,7 @@ import UIKit
 import ImagePicker
 import AVFoundation
 import Spring
+import PopupDialog
 
 class PuzzleViewController: UIViewController, ImagePickerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     let imagePicker = UIImagePickerController()
@@ -115,10 +116,6 @@ class PuzzleViewController: UIViewController, ImagePickerDelegate, UIImagePicker
         btn.frame = CGRect(x: 100, y: 500, width: 200, height: 100)
         btn.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
         self.view.addSubview(btn)
-        
-
-        
-       
         
     }
     
@@ -294,8 +291,10 @@ class PuzzleViewController: UIViewController, ImagePickerDelegate, UIImagePicker
                     TSGFirebaseManager.share.updateScore(score: self.myScore + 1)
                     self.dismiss(animated: true, completion: nil)
                     print("正確答案")
+                    self.alertUser(title: "System", with: "Correct Answer!", question: nil)
                 }else {
                     print("錯誤")
+                    self.alertUser(title: "System", with: "Wrong Answer!", question: nil)
                 }
             })
         }
@@ -308,15 +307,41 @@ class PuzzleViewController: UIViewController, ImagePickerDelegate, UIImagePicker
             if isTrue {
                 self.dismiss(animated: true, completion: nil)
                 print("正確")
+                self.alertUser(title: "System", with: "Correct!", question: nil)
             }else {
                 print("錯誤")
+                self.alertUser(title: "System", with: "Wrong!", question: nil)
             }
         }
     }
+    
     func cancelButtonDidPress(_ imagePicker: ImagePickerController) {
         imagePicker.dismiss(animated: true, completion: nil)
     }
     
+    func alertUser(title: String ,with message: String, question: String?) {
+        
+        let title = title
+        let message = message
+        let popup = PopupDialog(title: title, message: message, image: nil, buttonAlignment: .vertical, transitionStyle: .bounceUp, gestureDismissal: true) {
+            
+        }
+        
+        let buttonOne = DefaultButton(title: "OK", height: 60) {
+            
+        }
+        
+        // Add buttons to dialog
+        popup.addButtons([buttonOne])
+        
+        let deadlineTime = DispatchTime.now() + .seconds(1)
+        DispatchQueue.main.asyncAfter(deadline: deadlineTime) {
+            
+            self.present(popup, animated: true, completion: nil)
+            
+        }
+    }
+
 }
 
 extension UIImage{
