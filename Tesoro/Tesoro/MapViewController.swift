@@ -38,15 +38,6 @@ class MapViewController: UIViewController {
 
         setupViewController()
         
-        let testView = UIView()
-        testView.backgroundColor = .red
-        testView.frame = CGRect(x: 0, y: 0, width: 300, height: 300)
-        testView.layer.cornerRadius = testView.frame.width / 2
-        testView.layer.masksToBounds = true
-        
-        
-//        self.view.addSubview(testView)
-        
         TSGFirebaseManager.share.userStatusListener { (error, userStatus) in
             if TSGFirebaseManager.share.isServer {
                 if let serverDic = userStatus.object(forKey: "server") as? NSDictionary,
@@ -132,30 +123,14 @@ class MapViewController: UIViewController {
         
         UIView.animate(withDuration: 1.5) {
             
-            let destination_midX = self.enemyProgressDotsStackView.subviews[game].frame.midX
+            let destination_midX = self.enemyProgressDotsStackView.frame.minX + self.enemyProgressDotsStackView.subviews[game].frame.midX
             
             self.enemyImageView.frame = CGRect(x: destination_midX - self.enemyImageView.frame.width/2,
                                           y: self.enemyImageView.frame.minY,
                                           width: self.enemyImageView.frame.width,
                                           height: self.enemyImageView.frame.height)
-//            self.enemyImageView.center = CGPoint(x: destination_midX, y: self.enemyImageView.frame.midY)
-//            
+
         }
-        
-//        switch game {
-//        
-//        case 1:
-//            
-//            
-//            
-//        case 2:
-//            
-//        case 3:
-//            
-//        default:
-//            break
-//            
-//        }
         
     }
     
@@ -206,9 +181,6 @@ class MapViewController: UIViewController {
     }
     
     func setupViewController() {
-        game1Button.tag = 0
-        game2Button.tag = 1
-        game3Button.tag = 2
         //load map imageview
         mapImageView.image = #imageLiteral(resourceName: "Tresure Map")
         mapImageView.frame = CGRect(x: 0, y: 0,
