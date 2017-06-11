@@ -7,14 +7,19 @@
 //
 
 import UIKit
+import Spring
 
 class WelcomeViewController: UIViewController {
 
-    @IBOutlet weak var connectButton: UIButton!
+    @IBOutlet weak var appNameLabel: SpringLabel!
+//    @IBOutlet weak var swordImageView: SpringImageView!
+    @IBOutlet weak var connectButton: SpringButton!
+    
     var userCount: Int = 0 {
         didSet {
             if userCount == 2 {
                 self.connectButton.isEnabled = isServer
+                self.connectButton.animate()
             }else {
                 self.connectButton.isEnabled = false
             }
@@ -24,7 +29,6 @@ class WelcomeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        connectButton.isEnabled = false
         
         setupViewController()
         
@@ -42,6 +46,8 @@ class WelcomeViewController: UIViewController {
             self.userCount = TSGFirebaseManager.share.userCount
 //            print("User 狀態變動\(userStatus)")
         }
+        
+        
         
     }
     
@@ -61,8 +67,11 @@ class WelcomeViewController: UIViewController {
     
     func setupViewController() {
         
+        connectButton.isEnabled = false
+        connectButton.imageView?.contentMode = .scaleAspectFit
         connectButton.addTarget(self, action: #selector(connectGame), for: .touchUpInside)
         
+        appNameLabel.flashAnimation(from: 0.7, to: 0.1, duration: 1.5)
     }
     
     
