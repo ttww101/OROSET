@@ -9,6 +9,7 @@
 import UIKit
 import ImagePicker
 import AVFoundation
+import Spring
 
 class PuzzleViewController: UIViewController, ImagePickerDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     let imagePicker = UIImagePickerController()
@@ -20,7 +21,7 @@ class PuzzleViewController: UIViewController, ImagePickerDelegate, UIImagePicker
     let sounds = ["pianoC","pianoA","pianoB","pianoB","pianoA","pianoG","pianoE"]
     var imageView : UIImageView = UIImageView()
     var soundIndex = 0
-    @IBOutlet var questionView: UIView!
+    @IBOutlet var questionView: SpringView!
     enum Question: String{
         case cabbage = "cabbage"
         case forest = "forest"
@@ -102,6 +103,14 @@ class PuzzleViewController: UIViewController, ImagePickerDelegate, UIImagePicker
             soundIndex += 1
         }else {
             timer!.invalidate()
+            
+//            self.questionView.animation = "flipX"
+//            self.questionView.curve = "saseInOut"
+//            self.questionView.duration = 1.0
+//            self.questionView.animateNext {
+//                //鏡向左
+//                self.questionView.transform = CGAffineTransform(scaleX: -1,y: 1);
+//            }
         }
     }
     
