@@ -35,8 +35,6 @@ class MapViewController: UIViewController {
     @IBOutlet weak var game4Button: UIButton!
     @IBOutlet weak var game5Button: UIButton!
     
-    
-    
     let mapImageView = UIImageView()
     
     override func viewDidLoad() {
@@ -92,10 +90,52 @@ class MapViewController: UIViewController {
         
     }
     
+    func addLine(fromPoint start: CGPoint, toPoint end:CGPoint) {
+        
+        let line = CAShapeLayer()
+        let linePath = UIBezierPath()
+        linePath.move(to: start)
+        linePath.addLine(to: end)
+        line.path = linePath.cgPath
+        line.strokeColor = UIColor.red.cgColor
+        line.lineWidth = 5
+        line.lineJoin = kCALineJoinMiter
+        line.miterLimit = 1
+        self.ScrollMapView.layer.addSublayer(line)
+        
+//        let myAnimation = CABasicAnimation(keyPath: "path")
+//        
+//        myAnimation.fromValue = linePath.cgPath
+//        myAnimation.toValue = linePath.cgPath
+//        myAnimation.duration = 0.4
+//        myAnimation.fillMode = kCAFillModeForwards
+//        myAnimation.isRemovedOnCompletion = false
+//        
+//        self.view.layer.mask?.add(myAnimation, forKey: "animatePath")
+        
+    }
+    
+    func startGame(sender: UIButton) {
+        
+        let p1 = CGPoint(x: self.userImageView.frame.midX, y: self.userImageView.frame.midY)
+        let p2 = CGPoint(x: sender.frame.midX, y: sender.frame.midY)
+        self.addLine(fromPoint: p1, toPoint: p2)
+        
+        UIView.animate(withDuration: 3, animations: {
+            
+            self.userImageView.frame = sender.frame
+            
+        }) { (_) in
+            
+            
+        }
+        
+    }
+    
     func setupViewController() {
         
         //load map imageview
-        mapImageView.image = #imageLiteral(resourceName: "示意map")
+        mapImageView.image = #imageLiteral(resourceName: "Tresure Map")
         mapImageView.frame = CGRect(x: 0, y: 0,
                                     width: ScrollMapView.frame.height * 1.3,
                                     height: ScrollMapView.frame.height)
@@ -111,6 +151,31 @@ class MapViewController: UIViewController {
         game1Button.frame = CGRect(x: mapImageView.frame.width/8, y: mapImageView.frame.height/4, width: 100, height: 100)
         ScrollMapView.addSubview(game1Button)
         
+        game2Button.imageView?.contentMode = .scaleAspectFit
+        game2Button.frame = CGRect(x: mapImageView.frame.width/4, y: mapImageView.frame.height/2, width: 100, height: 100)
+        ScrollMapView.addSubview(game2Button)
+        
+        game3Button.imageView?.contentMode = .scaleAspectFit
+        game3Button.frame = CGRect(x: mapImageView.frame.width/3, y: mapImageView.frame.height/5, width: 120, height: 120)
+        ScrollMapView.addSubview(game3Button)
+        
+        game4Button.imageView?.contentMode = .scaleAspectFit
+        game4Button.frame = CGRect(x: mapImageView.frame.width * 1/2, y: mapImageView.frame.height * 2/5, width: 100, height: 100)
+        ScrollMapView.addSubview(game4Button)
+        
+        game5Button.imageView?.contentMode = .scaleAspectFit
+        game5Button.frame = CGRect(x: mapImageView.frame.width * 4 / 5, y: mapImageView.frame.height/10, width: 100, height: 100)
+        ScrollMapView.addSubview(game5Button)
+        
+        game1Button.addTarget(self, action: #selector(startGame), for: .touchUpInside)
+        game2Button.addTarget(self, action: #selector(startGame), for: .touchUpInside)
+        game3Button.addTarget(self, action: #selector(startGame), for: .touchUpInside)
+        game4Button.addTarget(self, action: #selector(startGame), for: .touchUpInside)
+        game5Button.addTarget(self, action: #selector(startGame), for: .touchUpInside)
+        
+        ScrollMapView.addSubview(userImageView)
+        userImageView.frame = CGRect(x: mapImageView.frame.width/15, y: mapImageView.frame.height/8, width: 40, height: 40)
+        
         //vibrate image view
         userImageView.vibrate(amplitude: 10, duration: 0.5)
         enemyImageView.vibrate(amplitude: 10, duration: 0.5)
@@ -125,9 +190,6 @@ class MapViewController: UIViewController {
         for i in 0...4 {
             enemyProgressDotsStackView.subviews[i].layer.cornerRadius = enemyProgressDotsStackView.frame.height / 5
         }
-        
-        
-        
         
     }
 

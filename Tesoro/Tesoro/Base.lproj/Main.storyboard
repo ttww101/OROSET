@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="cwn-qP-Iq3">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -53,7 +53,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                             </imageView>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" bounces="NO" alwaysBounceHorizontal="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F3Y-Ig-Hvb">
-                                <rect key="frame" x="16" y="84" width="343" height="483"/>
+                                <rect key="frame" x="0.0" y="84" width="375" height="483"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qt5-zn-KGl">
                                         <rect key="frame" x="35" y="29" width="129" height="66"/>
@@ -65,18 +65,22 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="Mummy"/>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YZw-QX-EOb">
-                                        <rect key="frame" x="84" y="205" width="46" height="30"/>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YZw-QX-EOb">
+                                        <rect key="frame" x="35" y="161" width="143" height="135"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Button"/>
+                                        <state key="normal" image="dark forest"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kd2-kn-Rhf">
-                                        <rect key="frame" x="165" y="225" width="71" height="96"/>
+                                        <rect key="frame" x="221" y="285" width="71" height="96"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="old_wolf_curved_sword"/>
                                     </button>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Crown" translatesAutoresizingMaskIntoConstraints="NO" id="EIQ-ff-srC">
+                                        <rect key="frame" x="47" y="352" width="40" height="40"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mS9-eC-sRT">
-                                        <rect key="frame" x="23" y="348" width="153" height="127"/>
+                                        <rect key="frame" x="214" y="169" width="153" height="127"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" image="dragon"/>
                                     </button>
@@ -165,26 +169,19 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="Crown" translatesAutoresizingMaskIntoConstraints="NO" id="EIQ-ff-srC">
-                                <rect key="frame" x="66" y="28" width="40" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="40" id="VU8-RJ-yBI"/>
-                                    <constraint firstAttribute="height" constant="40" id="hd0-Af-J4M"/>
-                                </constraints>
-                            </imageView>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="F3Y-Ig-Hvb" firstAttribute="trailing" secondItem="uv5-3P-fAn" secondAttribute="trailingMargin" id="3kg-Vk-r8Q"/>
+                            <constraint firstAttribute="trailing" secondItem="F3Y-Ig-Hvb" secondAttribute="trailing" id="5Bm-pq-94T"/>
                             <constraint firstItem="jJh-rm-klh" firstAttribute="top" secondItem="SvM-ED-tFt" secondAttribute="bottom" id="5n2-D7-WdZ"/>
                             <constraint firstItem="jrU-GI-yJC" firstAttribute="centerX" secondItem="AVX-Cq-Ser" secondAttribute="centerX" id="8cl-ti-I9A"/>
                             <constraint firstAttribute="trailing" secondItem="SvM-ED-tFt" secondAttribute="trailing" id="CMI-zV-bme"/>
                             <constraint firstItem="F3Y-Ig-Hvb" firstAttribute="top" secondItem="6mB-14-pEm" secondAttribute="bottom" constant="64" id="MAY-va-IgU"/>
-                            <constraint firstItem="F3Y-Ig-Hvb" firstAttribute="leading" secondItem="uv5-3P-fAn" secondAttribute="leadingMargin" id="YYv-Bc-R7o"/>
                             <constraint firstItem="SvM-ED-tFt" firstAttribute="top" secondItem="uv5-3P-fAn" secondAttribute="top" id="csH-yy-dHm"/>
                             <constraint firstAttribute="trailingMargin" secondItem="RPs-ev-dnx" secondAttribute="trailing" constant="5" id="ewq-0y-W69"/>
                             <constraint firstItem="jrU-GI-yJC" firstAttribute="top" secondItem="F3Y-Ig-Hvb" secondAttribute="bottom" constant="10" id="fi1-IC-ulB"/>
                             <constraint firstItem="RPs-ev-dnx" firstAttribute="leading" secondItem="uv5-3P-fAn" secondAttribute="leadingMargin" constant="5" id="hCh-X3-w4x"/>
                             <constraint firstItem="AVX-Cq-Ser" firstAttribute="top" secondItem="jrU-GI-yJC" secondAttribute="bottom" constant="5" id="oqM-aK-Al8"/>
+                            <constraint firstItem="F3Y-Ig-Hvb" firstAttribute="leading" secondItem="uv5-3P-fAn" secondAttribute="leading" id="pUH-0Y-1Vj"/>
                             <constraint firstItem="SvM-ED-tFt" firstAttribute="leading" secondItem="uv5-3P-fAn" secondAttribute="leading" id="qxE-kS-UCv"/>
                             <constraint firstItem="jJh-rm-klh" firstAttribute="top" secondItem="RPs-ev-dnx" secondAttribute="bottom" constant="37" id="xBV-wb-6MU"/>
                         </constraints>
@@ -204,7 +201,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GKd-tb-RrF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="574" y="37"/>
+            <point key="canvasLocation" x="573.60000000000002" y="36.431784107946029"/>
         </scene>
         <!--Puzzle View Controller-->
         <scene sceneID="0Ph-Jk-19V">
@@ -247,6 +244,7 @@
         <image name="Crown" width="1200" height="898"/>
         <image name="Enemy" width="600" height="600"/>
         <image name="Mummy" width="1114" height="1393"/>
+        <image name="dark forest" width="866" height="780"/>
         <image name="dragon" width="1667" height="1325"/>
         <image name="old_wolf_curved_sword" width="189" height="277"/>
         <image name="water monster" width="300" height="146"/>
