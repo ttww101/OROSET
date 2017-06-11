@@ -37,7 +37,7 @@ class TSGFirebaseManager: NSObject {
             self.gmaeOver()
             self.ref.child("game_states").child("users").child("server").updateChildValues(["is_online" : true, "score" : 0])
             self.ref.child("game_states").child("users").child("client").updateChildValues(["is_online" : false, "score" : 0])
-            self.ref.child("game_states").updateChildValues(["questions": ["cabbage", "forest" , "juice"]])
+            self.ref.child("game_states").updateChildValues(["questions":  ["cabbage", "forest", "juice","special"]])
             self.ref.child("game_states").child("users").updateChildValues(["is_waitting_client": true])
         }else{
             //client

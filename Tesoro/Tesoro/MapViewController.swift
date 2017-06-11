@@ -15,15 +15,18 @@ class MapViewController: UIViewController {
     @IBOutlet weak var userImageView: UIImageView!
     @IBOutlet weak var enemyProgressView: UIView!
     @IBOutlet weak var enemyProgressDotsStackView: UIStackView!
-    let questions: [String] = ["cabbage", "forest", "juice"]
+    let questions: [String] = ["cabbage", "forest", "juice","special"]
     var states: [String] = []
     var myScore = 0 {
         didSet {
             print("我的分數變動為\(myScore)")
             userMove(to: myScore)
-            if myScore >= 3 {
+            if myScore >= 5 {
                 TSGFirebaseManager.share.isWinnder = true
                 TSGFirebaseManager.share.gmaeOver()
+            }else if myScore == 3 {
+                userMove(to: 4)
+                userMove(to: 5)
             }
         }
     }
@@ -134,6 +137,36 @@ class MapViewController: UIViewController {
                 
             }
             
+        case 4:
+            
+            let p1 = CGPoint(x: self.userImageView.frame.midX, y: self.userImageView.frame.midY)
+            let p2 = CGPoint(x: game3Button.frame.midX, y: game3Button.frame.midY)
+            self.addLine(fromPoint: p1, toPoint: p2)
+            
+            UIView.animate(withDuration: 1, animations: {
+                
+                self.userImageView.frame = self.game4Button.frame
+                
+            }) { (_) in
+                
+                
+            }
+            
+        case 5:
+            
+            let p1 = CGPoint(x: self.userImageView.frame.midX, y: self.userImageView.frame.midY)
+            let p2 = CGPoint(x: game3Button.frame.midX, y: game3Button.frame.midY)
+            self.addLine(fromPoint: p1, toPoint: p2)
+            
+            UIView.animate(withDuration: 1, animations: {
+                
+                self.userImageView.frame = self.game5Button.frame
+                
+            }) { (_) in
+                
+                
+            }
+            
         default:
             break
         }
@@ -157,7 +190,7 @@ class MapViewController: UIViewController {
     
     
     func addLine(fromPoint start: CGPoint, toPoint end:CGPoint) {
-        
+        return
         let line = CAShapeLayer()
         let linePath = UIBezierPath()
         linePath.move(to: start)
