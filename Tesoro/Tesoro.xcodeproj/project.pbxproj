@@ -17,6 +17,11 @@
 		538195E01EEB870D001A5653 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 538195DE1EEB870D001A5653 /* Main.storyboard */; };
 		538195E21EEB870D001A5653 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 538195E11EEB870D001A5653 /* Assets.xcassets */; };
 		538195E51EEB870D001A5653 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 538195E31EEB870D001A5653 /* LaunchScreen.storyboard */; };
+		53DF90B61EECDA63000A01A7 /* pianoA.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 53DF90B51EECDA63000A01A7 /* pianoA.mp3 */; };
+		53DF90BB1EECDDED000A01A7 /* pianoB.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 53DF90B71EECDDED000A01A7 /* pianoB.mp3 */; };
+		53DF90BC1EECDDED000A01A7 /* pianoC.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 53DF90B81EECDDED000A01A7 /* pianoC.mp3 */; };
+		53DF90BD1EECDDED000A01A7 /* pianoE.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 53DF90B91EECDDED000A01A7 /* pianoE.mp3 */; };
+		53DF90BE1EECDDED000A01A7 /* pianoG.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 53DF90BA1EECDDED000A01A7 /* pianoG.mp3 */; };
 		53F98BDE1EEBDF7A00C5EB9B /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F98BDB1EEBDF7A00C5EB9B /* MapViewController.swift */; };
 		53F98BDF1EEBDF7A00C5EB9B /* PuzzleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F98BDC1EEBDF7A00C5EB9B /* PuzzleViewController.swift */; };
 		53F98BE01EEBDF7A00C5EB9B /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53F98BDD1EEBDF7A00C5EB9B /* WelcomeViewController.swift */; };
@@ -35,6 +40,11 @@
 		538195E11EEB870D001A5653 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		538195E41EEB870D001A5653 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		538195E61EEB870D001A5653 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		53DF90B51EECDA63000A01A7 /* pianoA.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = pianoA.mp3; sourceTree = "<group>"; };
+		53DF90B71EECDDED000A01A7 /* pianoB.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = pianoB.mp3; sourceTree = "<group>"; };
+		53DF90B81EECDDED000A01A7 /* pianoC.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = pianoC.mp3; sourceTree = "<group>"; };
+		53DF90B91EECDDED000A01A7 /* pianoE.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = pianoE.mp3; sourceTree = "<group>"; };
+		53DF90BA1EECDDED000A01A7 /* pianoG.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = pianoG.mp3; sourceTree = "<group>"; };
 		53F98BDB1EEBDF7A00C5EB9B /* MapViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		53F98BDC1EEBDF7A00C5EB9B /* PuzzleViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PuzzleViewController.swift; sourceTree = "<group>"; };
 		53F98BDD1EEBDF7A00C5EB9B /* WelcomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
@@ -96,6 +106,11 @@
 				53F98BE11EEBE02000C5EB9B /* UIImageView+Extensions.swift */,
 				538195DE1EEB870D001A5653 /* Main.storyboard */,
 				538195E11EEB870D001A5653 /* Assets.xcassets */,
+				53DF90B51EECDA63000A01A7 /* pianoA.mp3 */,
+				53DF90B71EECDDED000A01A7 /* pianoB.mp3 */,
+				53DF90B81EECDDED000A01A7 /* pianoC.mp3 */,
+				53DF90B91EECDDED000A01A7 /* pianoE.mp3 */,
+				53DF90BA1EECDDED000A01A7 /* pianoG.mp3 */,
 				538195E31EEB870D001A5653 /* LaunchScreen.storyboard */,
 				538195E61EEB870D001A5653 /* Info.plist */,
 				533408821EEB962100DA3EEC /* GoogleService-Info.plist */,
@@ -175,7 +190,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53DF90B61EECDA63000A01A7 /* pianoA.mp3 in Resources */,
+				53DF90BB1EECDDED000A01A7 /* pianoB.mp3 in Resources */,
+				53DF90BE1EECDDED000A01A7 /* pianoG.mp3 in Resources */,
+				53DF90BC1EECDDED000A01A7 /* pianoC.mp3 in Resources */,
 				538195E51EEB870D001A5653 /* LaunchScreen.storyboard in Resources */,
+				53DF90BD1EECDDED000A01A7 /* pianoE.mp3 in Resources */,
 				533408831EEB962100DA3EEC /* GoogleService-Info.plist in Resources */,
 				538195E21EEB870D001A5653 /* Assets.xcassets in Resources */,
 				538195E01EEB870D001A5653 /* Main.storyboard in Resources */,
