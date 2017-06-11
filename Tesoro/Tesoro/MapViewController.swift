@@ -18,10 +18,10 @@ class MapViewController: UIViewController {
     var myScore = 0 {
         didSet {
             print("我的分數變動為\(myScore)")
-            if myScore >= 6 {
+            userMove(to: myScore)
+            if myScore >= 3 {
                 TSGFirebaseManager.share.isWinnder = true
                 TSGFirebaseManager.share.gmaeOver()
-                userMove(to: myScore)
             }
         }
     }
