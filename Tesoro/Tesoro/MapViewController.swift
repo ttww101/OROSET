@@ -90,6 +90,93 @@ class MapViewController: UIViewController {
         
     }
     
+    func userMove(to game: Int) {
+        
+        switch game {
+            
+        case 1:
+            
+            let p1 = CGPoint(x: self.userImageView.frame.midX, y: self.userImageView.frame.midY)
+            let p2 = CGPoint(x: game1Button.frame.midX, y: game1Button.frame.midY)
+            self.addLine(fromPoint: p1, toPoint: p2)
+            
+            UIView.animate(withDuration: 3, animations: {
+                
+                self.userImageView.frame = self.game1Button.frame
+                
+            }) { (_) in
+                
+                
+            }
+            
+        case 2:
+            
+            let p1 = CGPoint(x: self.userImageView.frame.midX, y: self.userImageView.frame.midY)
+            let p2 = CGPoint(x: game2Button.frame.midX, y: game2Button.frame.midY)
+            self.addLine(fromPoint: p1, toPoint: p2)
+            
+            UIView.animate(withDuration: 3, animations: {
+                
+                self.userImageView.frame = self.game2Button.frame
+                
+            }) { (_) in
+                
+                
+            }
+            
+        case 3:
+            
+            let p1 = CGPoint(x: self.userImageView.frame.midX, y: self.userImageView.frame.midY)
+            let p2 = CGPoint(x: game3Button.frame.midX, y: game3Button.frame.midY)
+            self.addLine(fromPoint: p1, toPoint: p2)
+            
+            UIView.animate(withDuration: 3, animations: {
+                
+                self.userImageView.frame = self.game3Button.frame
+                
+            }) { (_) in
+                
+                
+            }
+            
+        default:
+            break
+        }
+        
+    }
+    
+    func enemyMove(to game: Int) {
+        
+        UIView.animate(withDuration: 1.5) {
+            
+            let destination_midX = self.enemyProgressDotsStackView.subviews[game].frame.midX
+            
+            self.enemyImageView.frame = CGRect(x: destination_midX - self.enemyImageView.frame.width/2,
+                                          y: self.enemyImageView.frame.minY,
+                                          width: self.enemyImageView.frame.width,
+                                          height: self.enemyImageView.frame.height)
+//            self.enemyImageView.center = CGPoint(x: destination_midX, y: self.enemyImageView.frame.midY)
+//            
+        }
+        
+//        switch game {
+//        
+//        case 1:
+//            
+//            
+//            
+//        case 2:
+//            
+//        case 3:
+//            
+//        default:
+//            break
+//            
+//        }
+        
+    }
+    
+    
     func addLine(fromPoint start: CGPoint, toPoint end:CGPoint) {
         
         let line = CAShapeLayer()
@@ -103,6 +190,7 @@ class MapViewController: UIViewController {
         line.miterLimit = 1
         self.ScrollMapView.layer.addSublayer(line)
         
+        // layer animation
 //        let myAnimation = CABasicAnimation(keyPath: "path")
 //        
 //        myAnimation.fromValue = linePath.cgPath
@@ -116,6 +204,8 @@ class MapViewController: UIViewController {
     }
     
     func startGame(sender: UIButton) {
+        
+        enemyMove(to: sender.tag)
         
         let p1 = CGPoint(x: self.userImageView.frame.midX, y: self.userImageView.frame.midY)
         let p2 = CGPoint(x: sender.frame.midX, y: sender.frame.midY)
@@ -133,7 +223,9 @@ class MapViewController: UIViewController {
     }
     
     func setupViewController() {
-        
+        game1Button.tag = 0
+        game2Button.tag = 1
+        game3Button.tag = 2
         //load map imageview
         mapImageView.image = #imageLiteral(resourceName: "Tresure Map")
         mapImageView.frame = CGRect(x: 0, y: 0,

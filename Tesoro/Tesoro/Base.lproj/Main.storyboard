@@ -21,21 +21,55 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jiq-8l-1QY">
-                                <rect key="frame" x="158" y="318" width="59" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Connect"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Cave" translatesAutoresizingMaskIntoConstraints="NO" id="AAt-x8-LKC">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.45000000000000001" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tosoro" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l8m-z3-ebE" customClass="SpringLabel" customModule="Spring">
+                                <rect key="frame" x="40" y="45" width="295" height="112"/>
+                                <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="72"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="animation" value="flash"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="duration">
+                                        <real key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="autostart" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="repeatCount">
+                                        <real key="value" value="1000"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jiq-8l-1QY" customClass="SpringButton" customModule="Spring">
+                                <rect key="frame" x="149" y="297" width="77" height="72"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="77" id="xur-fU-gIg"/>
+                                </constraints>
+                                <state key="normal" image="cross sword-1"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="AAt-x8-LKC" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="34A-V5-alU"/>
+                            <constraint firstItem="AAt-x8-LKC" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="6fx-sP-Q3V"/>
+                            <constraint firstAttribute="trailing" secondItem="AAt-x8-LKC" secondAttribute="trailing" id="9M9-jQ-M5p"/>
+                            <constraint firstItem="l8m-z3-ebE" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="24" id="GMp-96-lVP"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Jiq-8l-1QY" secondAttribute="bottom" constant="298" id="IlR-VH-VbS"/>
+                            <constraint firstItem="l8m-z3-ebE" firstAttribute="centerX" secondItem="AAt-x8-LKC" secondAttribute="centerX" id="fWh-ex-eWe"/>
+                            <constraint firstItem="AAt-x8-LKC" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="lGE-Wf-sBh"/>
+                            <constraint firstItem="l8m-z3-ebE" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="25" id="moo-gi-Lhn"/>
+                            <constraint firstItem="Jiq-8l-1QY" firstAttribute="centerY" secondItem="AAt-x8-LKC" secondAttribute="centerY" id="tRR-lj-cLZ"/>
+                            <constraint firstItem="l8m-z3-ebE" firstAttribute="centerX" secondItem="Jiq-8l-1QY" secondAttribute="centerX" id="y4p-OF-xJx"/>
+                        </constraints>
                     </view>
                     <connections>
+                        <outlet property="appNameLabel" destination="l8m-z3-ebE" id="MWp-tX-iJe"/>
                         <outlet property="connectButton" destination="Jiq-8l-1QY" id="RPZ-Qy-wUX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-212" y="36"/>
+            <point key="canvasLocation" x="-212" y="35.532233883058474"/>
         </scene>
         <!--Map View Controller-->
         <scene sceneID="aOH-OB-Eq7">
@@ -241,9 +275,11 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Cave" width="897" height="670"/>
         <image name="Crown" width="1200" height="898"/>
         <image name="Enemy" width="600" height="600"/>
         <image name="Mummy" width="1114" height="1393"/>
+        <image name="cross sword-1" width="640" height="640"/>
         <image name="dark forest" width="866" height="780"/>
         <image name="dragon" width="1667" height="1325"/>
         <image name="old_wolf_curved_sword" width="189" height="277"/>
