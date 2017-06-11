@@ -28,6 +28,15 @@ class MapViewController: UIViewController {
             }else if myScore == 3 {
                 userMove(to: 4)
                 userMove(to: 5)
+//                startGame(sender: UIButton())
+                let deadlineTime = DispatchTime.now() + .seconds(3)
+                DispatchQueue.main.asyncAfter(deadline: deadlineTime) {
+                    
+//                    self.present(popup, animated: true, completion: nil)
+                           self.alertUser(with: "就這樣一路過關斬將拔起石中劍，砍爆巨龍，可是寶藏呢？\n咦？這龍血中的 RNA 貌似要傳達什麼訊息，難道就是寶藏的位置嗎？", question: "special")
+                    
+                }
+         
             }
         }
     }
@@ -108,7 +117,7 @@ class MapViewController: UIViewController {
         // Add buttons to dialog
         popup.addButtons([buttonOne])
         
-        let deadlineTime = DispatchTime.now() + .seconds(1)
+        let deadlineTime = DispatchTime.now() + .microseconds(500)
         DispatchQueue.main.asyncAfter(deadline: deadlineTime) {
             
                 self.present(popup, animated: true, completion: nil)

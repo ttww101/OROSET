@@ -36,7 +36,7 @@ class PuzzleViewController: UIViewController, ImagePickerDelegate, UIImagePicker
         case special = "special"
     }
     
-    var questionName = Question.special
+    var questionName = Question.cabbage
     var questionNameStr = ""
     
     @IBAction func openCamera(_ sender: Any) {
@@ -190,11 +190,27 @@ class PuzzleViewController: UIViewController, ImagePickerDelegate, UIImagePicker
     }
     
     func creatSpecial() {
+//        imageView  = UIImageView(frame:CGRect(x:questionView.frame.origin.x - 40,
+//                                              y:questionView.frame.origin.y + 170,
+//                                              width:questionView.frame.width * 1.2,
+//                                              height:questionView.frame.width * 1.2));
+//        imageView.image = UIImage(named:"special")
+        
         imageView  = UIImageView(frame:CGRect(x:questionView.frame.origin.x - 40,
                                               y:questionView.frame.origin.y + 170,
                                               width:questionView.frame.width * 1.2,
                                               height:questionView.frame.width * 1.2));
         imageView.image = UIImage(named:"special")
+        
+        imageView2  = UIImageView(frame:CGRect(x:questionView.frame.origin.x - 10,
+                                               y:questionView.frame.origin.y ,
+                                               width:questionView.frame.width ,
+                                               height:questionView.frame.width * 0.7));
+        imageView2.image = UIImage(named:"blood")
+        imageView.contentMode = .scaleAspectFit
+        imageView2.contentMode = .scaleAspectFit
+        questionView.addSubview(imageView)
+        questionView.addSubview(imageView2)
         
     }
     
@@ -436,7 +452,7 @@ class PuzzleViewController: UIViewController, ImagePickerDelegate, UIImagePicker
         // Add buttons to dialog
         popup.addButtons([buttonOne])
         
-        let deadlineTime = DispatchTime.now() + .seconds(1)
+        let deadlineTime = DispatchTime.now() + .microseconds(500)
         DispatchQueue.main.asyncAfter(deadline: deadlineTime) {
             
             self.present(popup, animated: true, completion: nil)
