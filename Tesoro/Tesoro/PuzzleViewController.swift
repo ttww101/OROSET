@@ -127,6 +127,7 @@ class PuzzleViewController: UIViewController, ImagePickerDelegate, UIImagePicker
                 if TSGFirebaseManager.share.isWinnder {
                     print("贏家")
                 }else {
+                    self.alertUser(title: "Hi", with: "YOU ARE LOSER", question: nil)
                     print("輸家")
                 }
             }
@@ -472,6 +473,31 @@ class PuzzleViewController: UIViewController, ImagePickerDelegate, UIImagePicker
         DispatchQueue.main.asyncAfter(deadline: deadlineTime) {
             
             self.present(popup, animated: true, completion: nil)
+            
+        }
+    }
+
+    
+    func alertUserNew(title: String ,with message: String, question: String?) {
+        
+        let title = title
+        let message = message
+        let popup = PopupDialog(title: title, message: message, image: nil, buttonAlignment: .vertical, transitionStyle: .bounceUp, gestureDismissal: true) {
+            if message == "Correct!" {
+                self.dismiss(animated: true, completion: nil)
+            }
+        }
+        
+        let buttonOne = DefaultButton(title: "OK", height: 60) {
+        }
+        
+        // Add buttons to dialog
+        popup.addButtons([buttonOne])
+        
+        let deadlineTime = DispatchTime.now() + .microseconds(500)
+        DispatchQueue.main.asyncAfter(deadline: deadlineTime) {
+            
+//            self.present(popup, animated: true, completion: nil)
             
         }
     }

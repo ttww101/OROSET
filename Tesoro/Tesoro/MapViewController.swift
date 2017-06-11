@@ -91,12 +91,13 @@ class MapViewController: UIViewController {
                 if TSGFirebaseManager.share.isWinnder {
                     print("贏家")
                 }else {
+                    self.alertUser(with: "YOU ARE LOSER", question: nil)
                     print("輸家")
                 }
             }
         }
         
-        alertUser(with: "很久很久以前，有個國家叫 愛坡沃獅國，正值百年難得一見的旱災，女王旑霓十分苦惱，這時鄰國有位自耕農-肉蟻，動起了歪腦筋，企圖哄抬國際菜價，於是開了船出海...", question: nil)
+        alertUser(with: "很久很久以前，有個國家叫愛坡沃獅國，正值百年難得一見的旱災，女王旑霓十分苦惱，這時鄰國有位自耕農-肉蟻，動起了歪腦筋，企圖哄抬國際菜價，於是開了船出海...", question: nil)
         
     }
     
@@ -211,6 +212,10 @@ class MapViewController: UIViewController {
     }
     
     func enemyMove(to game: Int) {
+        
+        if game > 5 {
+            return
+        }
         
         UIView.animate(withDuration: 1.5) {
             

@@ -40,6 +40,8 @@ class WelcomeViewController: UIViewController {
                 print("遊戲結束")
                 if TSGFirebaseManager.share.isWinnder {
                     print("贏家")
+                }else{
+//                    self.alertUser(with: "YOU ARE LOSER", question: nil)
                 }
             }
         }
