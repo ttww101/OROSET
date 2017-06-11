@@ -15,12 +15,17 @@ class PuzzleViewController: UIViewController, ImagePickerDelegate, UIImagePicker
     let imagePicker = UIImagePickerController()
     private var audioPlayer: AVAudioPlayer?
     var timer: Timer?
-    
+    var mask: UIImageView = UIImageView()
+    var mmmm: SpringImageView = SpringImageView()
+    var viewS: SpringView = SpringView()
     let upds = [-1,1,-1,-1,1,1,1]
     let location = [1,3,2,2,3,4,6]
+    var indexForMask = 0
+    let masks = [2,5,7,8,1,0]
     let sounds = ["pianoC","pianoA","pianoB","pianoB","pianoA","pianoG","pianoE"]
     var imageView : UIImageView = UIImageView()
     var soundIndex = 0
+    var myScore = 0
     @IBOutlet var questionView: SpringView!
     enum Question: String{
         case cabbage = "cabbage"
@@ -28,7 +33,8 @@ class PuzzleViewController: UIViewController, ImagePickerDelegate, UIImagePicker
         case juice = "juice"
     }
     
-    var questionName = Question.cabbage
+    var questionName = Question.forest
+    var questionNameStr = ""
     
     @IBAction func openCamera(_ sender: Any) {
         imagePicker.delegate = self
@@ -41,8 +47,16 @@ class PuzzleViewController: UIViewController, ImagePickerDelegate, UIImagePicker
     
     @IBOutlet weak var cameraButton: UIButton!
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        if questionNameStr != "",
+            let name  = Question(rawValue: questionNameStr){
+            questionName = name
+        }
+        
         showQuestion()
     }
     
@@ -63,8 +77,10 @@ class PuzzleViewController: UIViewController, ImagePickerDelegate, UIImagePicker
             timer = Timer.scheduledTimer(timeInterval: 0.7, target: self, selector: #selector(play), userInfo: nil, repeats: true)
         case .forest:
             print("森林")
+            creatForest()
         case .juice:
             print("果汁")
+            creatForest()
         }
     }
     
@@ -74,6 +90,56 @@ class PuzzleViewController: UIViewController, ImagePickerDelegate, UIImagePicker
                                               width:343,
                                               height:569 / 2.5));
         imageView.image = UIImage(named:"footstep")
+        questionView.addSubview(imageView)
+    }
+    
+    func creatForest() {
+        imageView  = UIImageView(frame:CGRect(x:questionView.frame.origin.x - 40,
+                                              y:questionView.frame.origin.y + 50,
+                                              width:questionView.frame.width * 1.2,
+                                              height:questionView.frame.width * 1.2));
+        imageView.contentMode = .scaleAspectFit
+        imageView.image = UIImage(named:"mummyQuestion")
+        questionView.addSubview(imageView)
+        
+        mmmm = SpringImageView(frame:CGRect(x:questionView.frame.origin.x + 54,
+                                            y:questionView.frame.origin.y + 163,
+                                            width:questionView.frame.width * 0.65,
+                                            height:questionView.frame.width * 0.65));
+        mmmm.image = UIImage(named:"puzzleMask")
+        questionView.addSubview(mmmm)
+        
+        let btn = UIButton(type: .custom) as UIButton
+        btn.backgroundColor = .blue
+        btn.setTitle("翻轉", for: .normal)
+        btn.frame = CGRect(x: 100, y: 500, width: 200, height: 100)
+        btn.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
+        self.view.addSubview(btn)
+        
+
+        
+       
+        
+    }
+    
+    func buttonAction(sender: UIButton!) {
+        if indexForMask < masks.count {
+            maskChangeTo(to: masks[indexForMask])
+            indexForMask += 1
+        }else{
+            maskChangeTo(to: masks[0])
+            indexForMask = 0
+        }
+      
+    }
+    
+    func creatJuice() {
+        imageView  = UIImageView(frame:CGRect(x:questionView.frame.origin.x - 10,
+                                              y:questionView.frame.origin.y,
+                                              width:343,
+                                              height:569 / 2.5));
+        imageView.image = UIImage(named:"Forest-Wall-Mural")?
+            .waterMarkedImage(waterMarkText: "2017/06/11 13:00")
         questionView.addSubview(imageView)
     }
     
@@ -104,13 +170,99 @@ class PuzzleViewController: UIViewController, ImagePickerDelegate, UIImagePicker
         }else {
             timer!.invalidate()
             
-//            self.questionView.animation = "flipX"
-//            self.questionView.curve = "saseInOut"
-//            self.questionView.duration = 1.0
-//            self.questionView.animateNext {
-//                //鏡向左
-//                self.questionView.transform = CGAffineTransform(scaleX: -1,y: 1);
-//            }
+            //                        self.questionView.animation = "flipX"
+            //                        self.questionView.curve = "saseInOut"
+            //                        self.questionView.duration = 1.0
+            //                        self.questionView.animateNext {
+            //                            //鏡向左
+            //                            self.questionView.transform = CGAffineTransform(scaleX: -1,y: 1);
+            //                        }
+        }
+    }
+    
+    func maskChangeTo(to: Int) {
+        switch to {
+        case 0:
+            //向右90
+            mmmm.animation = "flipX"
+            mmmm.curve = "saseInOut"
+            mmmm.duration = 1.0
+            mmmm.animateNext {
+                let angle = 0 * CGFloat.pi / 180
+                self.mmmm.transform = CGAffineTransform(rotationAngle: CGFloat(angle));
+            }
+        case 1:
+            //向右90
+            mmmm.animation = "flipX"
+            mmmm.curve = "saseInOut"
+            mmmm.duration = 1.0
+            mmmm.animateNext {
+                let angle = 90 * CGFloat.pi / 180
+                self.mmmm.transform = CGAffineTransform(rotationAngle: CGFloat(angle));
+            }
+        //                self.mmmm.transform = CGAffineTransform(scaleX: -1,y: 1);
+        case 2:
+            //向左90
+            mmmm.animation = "flipX"
+            mmmm.curve = "saseInOut"
+            mmmm.duration = 1.0
+            mmmm.animateNext {
+                let angle = -90 * CGFloat.pi / 180
+                self.mmmm.transform = CGAffineTransform(rotationAngle: CGFloat(angle));
+            }
+        case 3:
+            //鏡向左
+            mmmm.animation = "flipX"
+            mmmm.curve = "saseInOut"
+            mmmm.duration = 1.0
+            mmmm.animateNext {
+                self.mmmm.transform = CGAffineTransform(scaleX: -1,y: 1);
+            }
+        case 4:
+            //鏡向上
+            mmmm.animation = "flipX"
+            mmmm.curve = "saseInOut"
+            mmmm.duration = 1.0
+            mmmm.animateNext {
+                self.mmmm.transform = CGAffineTransform(scaleX: 1,y: -1);
+            }
+        case 5:
+            //鏡向上
+            self.mmmm.image = UIImage(named:"st2")
+            mmmm.animation = "flipX"
+            mmmm.curve = "saseInOut"
+            mmmm.duration = 1.0
+            mmmm.animateNext {
+                let angle = -90 * CGFloat.pi / 180
+                self.mmmm.transform = CGAffineTransform(rotationAngle: CGFloat(angle));
+            }
+        case 6:
+            mmmm.animation = "flipX"
+            mmmm.curve = "saseInOut"
+            mmmm.duration = 1.0
+            mmmm.animateNext {
+                let angle = -90 * CGFloat.pi / 180
+                self.mmmm.transform = CGAffineTransform(rotationAngle: CGFloat(angle));
+            }
+        case 7:
+            mmmm.animation = "flipX"
+            mmmm.curve = "saseInOut"
+            mmmm.duration = 1.0
+            mmmm.animateNext {
+                let angle = -180 * CGFloat.pi / 180
+                self.mmmm.transform = CGAffineTransform(rotationAngle: CGFloat(angle));
+            }
+        case 8:
+            mmmm.image = UIImage(named:"puzzleMask")
+            mmmm.animation = "flipX"
+            mmmm.curve = "saseInOut"
+            mmmm.duration = 1.0
+            mmmm.animateNext {
+                let angle = -180 * CGFloat.pi / 180
+                self.mmmm.transform = CGAffineTransform(rotationAngle: CGFloat(angle));
+            }
+        default:
+            self.mmmm.transform = CGAffineTransform(scaleX: 1,y: 1);
         }
     }
     
@@ -137,8 +289,10 @@ class PuzzleViewController: UIViewController, ImagePickerDelegate, UIImagePicker
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            TSGVApiManager.share.compareImg(with: pickedImage, ans: "airplane", comp: { (error, isTureAns) in
+            TSGVApiManager.share.compareImg(with: pickedImage, ans: self.questionNameStr, comp: { (error, isTureAns) in
                 if isTureAns {
+                    TSGFirebaseManager.share.updateScore(score: self.myScore + 1)
+                    self.dismiss(animated: true, completion: nil)
                     print("正確答案")
                 }else {
                     print("錯誤")
@@ -150,8 +304,9 @@ class PuzzleViewController: UIViewController, ImagePickerDelegate, UIImagePicker
     
     func doneButtonDidPress(_ imagePicker: ImagePickerController, images: [UIImage]) {
         imagePicker.dismiss(animated: true, completion: nil)
-        TSGVApiManager.share.compareImg(with: images[0], ans: "airplane") { (error, isTrue) in
+        TSGVApiManager.share.compareImg(with: images[0], ans: self.questionNameStr) { (error, isTrue) in
             if isTrue {
+                self.dismiss(animated: true, completion: nil)
                 print("正確")
             }else {
                 print("錯誤")
@@ -162,4 +317,56 @@ class PuzzleViewController: UIViewController, ImagePickerDelegate, UIImagePicker
         imagePicker.dismiss(animated: true, completion: nil)
     }
     
+}
+
+extension UIImage{
+    
+    //水印位置枚举
+    enum WaterMarkCorner{
+        case TopLeft
+        case TopRight
+        case BottomLeft
+        case BottomRight
+    }
+    
+    //添加水印方法
+    func waterMarkedImage(waterMarkText:String, corner:WaterMarkCorner = .BottomRight,
+                          margin:CGPoint = CGPoint(x: 20, y: 20),
+                          waterMarkTextColor:UIColor = UIColor.yellow,
+                          waterMarkTextFont:UIFont = UIFont.systemFont(ofSize: 30),
+                          backgroundColor:UIColor = UIColor.clear) -> UIImage{
+        
+        let textAttributes = [NSForegroundColorAttributeName:waterMarkTextColor,
+                              NSFontAttributeName:waterMarkTextFont,
+                              NSBackgroundColorAttributeName:backgroundColor]
+        let textSize = NSString(string: waterMarkText).size(attributes: textAttributes)
+        var textFrame = CGRectMake(0, 0, textSize.width, textSize.height)
+        
+        let imageSize = self.size
+        switch corner{
+        case .TopLeft:
+            textFrame.origin = margin
+        case .TopRight:
+            textFrame.origin = CGPoint(x: imageSize.width - textSize.width - margin.x, y: margin.y)
+        case .BottomLeft:
+            textFrame.origin = CGPoint(x: margin.x, y: imageSize.height - textSize.height - margin.y)
+        case .BottomRight:
+            textFrame.origin = CGPoint(x: imageSize.width - textSize.width - margin.x,
+                                       y: imageSize.height - textSize.height - margin.y)
+        }
+        
+        // 开始给图片添加文字水印
+        UIGraphicsBeginImageContext(imageSize)
+        self.draw(in: CGRectMake(0, 0, imageSize.width, imageSize.height))
+        NSString(string: waterMarkText).draw(in: textFrame, withAttributes: textAttributes)
+        
+        let waterMarkedImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return waterMarkedImage!
+    }
+    
+    func CGRectMake(_ x: CGFloat, _ y: CGFloat, _ width: CGFloat, _ height: CGFloat) -> CGRect {
+        return CGRect(x: x, y: y, width: width, height: height)
+    }
 }

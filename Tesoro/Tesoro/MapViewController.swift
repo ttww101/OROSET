@@ -9,12 +9,14 @@
 import UIKit
 
 class MapViewController: UIViewController {
-
+    
     @IBOutlet weak var ScrollMapView: UIScrollView!
     @IBOutlet weak var enemyImageView: UIImageView!
     @IBOutlet weak var userImageView: UIImageView!
     @IBOutlet weak var enemyProgressView: UIView!
     @IBOutlet weak var enemyProgressDotsStackView: UIStackView!
+    let questions: [String] = ["cabbage", "forest", "juice"]
+    var states: [String] = []
     var myScore = 0 {
         didSet {
             print("我的分數變動為\(myScore)")
@@ -41,7 +43,7 @@ class MapViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         setupViewController()
         
         TSGFirebaseManager.share.userStatusListener { (error, userStatus) in
@@ -64,8 +66,8 @@ class MapViewController: UIViewController {
                     self.enemyScore = enemScore
                 }
             }
-//            print("User 狀態變動\(userStatus)")
-//            if userStatus.key
+            //            print("User 狀態變動\(userStatus)")
+            //            if userStatus.key
         }
         
         TSGFirebaseManager.share.gameStatusListener { (error, isGameStart) in
@@ -145,10 +147,10 @@ class MapViewController: UIViewController {
             let destination_midX = self.enemyProgressDotsStackView.frame.minX + self.enemyProgressDotsStackView.subviews[game].frame.midX
             
             self.enemyImageView.frame = CGRect(x: destination_midX - self.enemyImageView.frame.width/2,
-                                          y: self.enemyImageView.frame.minY,
-                                          width: self.enemyImageView.frame.width,
-                                          height: self.enemyImageView.frame.height)
-
+                                               y: self.enemyImageView.frame.minY,
+                                               width: self.enemyImageView.frame.width,
+                                               height: self.enemyImageView.frame.height)
+            
         }
         
     }
@@ -168,15 +170,26 @@ class MapViewController: UIViewController {
         self.ScrollMapView.layer.addSublayer(line)
         
         // layer animation
-//        let myAnimation = CABasicAnimation(keyPath: "path")
-//        
-//        myAnimation.fromValue = linePath.cgPath
-//        myAnimation.toValue = linePath.cgPath
-//        myAnimation.duration = 0.4
-//        myAnimation.fillMode = kCAFillModeForwards
-//        myAnimation.isRemovedOnCompletion = false
-//        
-//        self.view.layer.mask?.add(myAnimation, forKey: "animatePath")
+        //        let myAnimation = CABasicAnimation(keyPath: "path")
+        //
+        //        myAnimation.fromValue = linePath.cgPath
+        //        myAnimation.toValue = linePath.cgPath
+        //        myAnimation.duration = 0.4
+        //        myAnimation.fillMode = kCAFillModeForwards
+        //        myAnimation.isRemovedOnCompletion = false
+        //
+        //        self.view.layer.mask?.add(myAnimation, forKey: "animatePath")
+        
+    }
+    
+    func connectGame(question: String) {
+        
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "PuzzleViewController") as? PuzzleViewController {
+            vc.myScore = myScore
+            vc.questionNameStr = question
+            self.present(vc, animated: true, completion: {
+            })
+        }
         
     }
     
@@ -192,7 +205,20 @@ class MapViewController: UIViewController {
             
             self.userImageView.frame = sender.frame
             
-        }) { (_) in
+        }) { _ in
+            print("動畫完成")
+            
+            for (_,q) in self.questions.enumerated() {
+                
+                if !self.states.contains(q) {
+                    self.states.append(q)
+                     self.connectGame(question: q)
+                    break
+                }
+                
+            }
+            
+            
             
             
         }
@@ -258,5 +284,5 @@ class MapViewController: UIViewController {
         }
         
     }
-
+    
 }

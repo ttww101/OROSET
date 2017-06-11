@@ -115,7 +115,7 @@ class TSGVApiManager: NSObject {
                     }
                     print(labelResultsText)
                     for q in labels {
-                        if q == self.questionAnswer {
+                        if q == self.questionAnswer || q == "vegetable" {
                              self.labelsCompletionHandler!(nil, true)
                             return
                         }
